@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JInternalFrameFormInfo">
+  <Properties>
+    <Property name="closable" type="boolean" value="true"/>
+    <Property name="title" type="java.lang.String" value="Titula&#xe7;&#xe3;o"/>
+  </Properties>
+  <SyntheticProperties>
+    <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+  </SyntheticProperties>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" attributes="0">
+              <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+              <Component id="btnVoltar" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="btnADD" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="138" max="-2" attributes="0"/>
+              <Component id="bntAvancar" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" attributes="0">
+              <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+              <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="307" max="-2" attributes="0"/>
+              <Component id="txtCidade" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+              <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Component id="boxEstado" min="-2" pref="125" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
+                      <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="25" max="32767" attributes="0"/>
+                  </Group>
+                  <Component id="boxInstituicao" pref="0" max="32767" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="Insti" min="-2" pref="236" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" attributes="0">
+              <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+              <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="boxAno" min="-2" pref="62" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="boxGrau" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="txtCurso" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="boxGrau" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtCurso" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="boxAno" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="boxInstituicao" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="Insti" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtCidade" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="boxEstado" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="31" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="2" attributes="0">
+                  <Component id="bntAvancar" alignment="2" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnADD" alignment="2" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnVoltar" alignment="2" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Component class="javax.swing.JLabel" name="jLabel9">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Ano de conclus&#xe3;o:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="boxGrau">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="3">
+            <StringItem index="0" value="Bacharel"/>
+            <StringItem index="1" value="Licenciado"/>
+            <StringItem index="2" value="Tecn&#xf3;logo"/>
+          </StringArray>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtCurso">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="8"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="boxAno">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="42">
+            <StringItem index="0" value="1975"/>
+            <StringItem index="1" value="1976"/>
+            <StringItem index="2" value="1977"/>
+            <StringItem index="3" value="1978"/>
+            <StringItem index="4" value="1979"/>
+            <StringItem index="5" value="1980"/>
+            <StringItem index="6" value="1981"/>
+            <StringItem index="7" value="1982"/>
+            <StringItem index="8" value="1983"/>
+            <StringItem index="9" value="1984"/>
+            <StringItem index="10" value="1985"/>
+            <StringItem index="11" value="1986"/>
+            <StringItem index="12" value="1987"/>
+            <StringItem index="13" value="1988"/>
+            <StringItem index="14" value="1989"/>
+            <StringItem index="15" value="1990"/>
+            <StringItem index="16" value="1991"/>
+            <StringItem index="17" value="1992"/>
+            <StringItem index="18" value="1993"/>
+            <StringItem index="19" value="1994"/>
+            <StringItem index="20" value="1995"/>
+            <StringItem index="21" value="1996"/>
+            <StringItem index="22" value="1997"/>
+            <StringItem index="23" value="1998"/>
+            <StringItem index="24" value="1999"/>
+            <StringItem index="25" value="2000"/>
+            <StringItem index="26" value="2001"/>
+            <StringItem index="27" value="2002"/>
+            <StringItem index="28" value="2003"/>
+            <StringItem index="29" value="2004"/>
+            <StringItem index="30" value="2005"/>
+            <StringItem index="31" value="2006"/>
+            <StringItem index="32" value="2007"/>
+            <StringItem index="33" value="2008"/>
+            <StringItem index="34" value="2009"/>
+            <StringItem index="35" value="2010"/>
+            <StringItem index="36" value="2011"/>
+            <StringItem index="37" value="2012"/>
+            <StringItem index="38" value="2013"/>
+            <StringItem index="39" value="2014"/>
+            <StringItem index="40" value="2015"/>
+            <StringItem index="41" value="2016"/>
+          </StringArray>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="em"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel2">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Institui&#xe7;&#xe3;o:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="boxInstituicao">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="10">
+            <StringItem index="0" value="UEPB - Universidade Estadual da Para&#xed;ba"/>
+            <StringItem index="1" value="IFPB - Instituto Federal da Para&#xed;ba"/>
+            <StringItem index="2" value="UFPB - Universidade Federal da Para&#xed;ba"/>
+            <StringItem index="3" value="UFCG - Universidade Federal de Campina Grande"/>
+            <StringItem index="4" value="UNIP&#xca; - Centro Universit&#xe1;rio de Jo&#xe3;o Pessoa"/>
+            <StringItem index="5" value="FPB - Faculdade Internacional da Para&#xed;ba"/>
+            <StringItem index="6" value="LUMEN FAC - Faculdade de Ci&#xea;ncias Cont&#xe1;beis Luiz Mendes"/>
+            <StringItem index="7" value="LUMEN FAC - Faculdade de Ci&#xea;ncias M&#xe9;dicas da Para&#xed;ba"/>
+            <StringItem index="8" value="FACENE - Faculdade de Enfermagem Nova Esperan&#xe7;a"/>
+            <StringItem index="9" value="Outra (Especificar)"/>
+          </StringArray>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="boxInstituicaoItemStateChanged"/>
+      </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JTextField" name="Insti">
+      <Properties>
+        <Property name="enabled" type="boolean" value="false"/>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="8"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel3">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="UF:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="boxEstado">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="27">
+            <StringItem index="0" value="Acre (AC)"/>
+            <StringItem index="1" value="Alagoas (AL)"/>
+            <StringItem index="2" value="Amap&#xe1; (AP)"/>
+            <StringItem index="3" value="Amazonas (AM)"/>
+            <StringItem index="4" value="Bahia (BA)"/>
+            <StringItem index="5" value="Cear&#xe1; (CE)"/>
+            <StringItem index="6" value="Distrito Federal (DF)"/>
+            <StringItem index="7" value="Esp&#xed;rito Santo (ES)"/>
+            <StringItem index="8" value="Goi&#xe1;s (GO)"/>
+            <StringItem index="9" value="Maranh&#xe3;o (MA)"/>
+            <StringItem index="10" value="Mato Grosso (MT)"/>
+            <StringItem index="11" value="Mato Grosso do Sul (MS)"/>
+            <StringItem index="12" value="Minas Gerais (MG)"/>
+            <StringItem index="13" value="Par&#xe1; (PA) "/>
+            <StringItem index="14" value="Para&#xed;ba (PB)"/>
+            <StringItem index="15" value="Paran&#xe1; (PR)"/>
+            <StringItem index="16" value="Pernambuco (PE)"/>
+            <StringItem index="17" value="Piau&#xed; (PI)"/>
+            <StringItem index="18" value="Rio de Janeiro (RJ)"/>
+            <StringItem index="19" value="Rio Grande do Norte (RN)"/>
+            <StringItem index="20" value="Rio Grande do Sul (RS)"/>
+            <StringItem index="21" value="Rond&#xf4;nia (RO)"/>
+            <StringItem index="22" value="Roraima (RR)"/>
+            <StringItem index="23" value="Santa Catarina (SC)"/>
+            <StringItem index="24" value="S&#xe3;o Paulo (SP)"/>
+            <StringItem index="25" value="Sergipe (SE)"/>
+            <StringItem index="26" value="Tocantins (TO)"/>
+          </StringArray>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JButton" name="bntAvancar">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Avan&#xe7;ar"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bntAvancarActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnVoltar">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Voltar"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnVoltarActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnADD">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Adicionar Outro"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnADDActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel4">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Cidade:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtCidade">
+    </Component>
+  </SubComponents>
+</Form>
