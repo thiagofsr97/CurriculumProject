@@ -5,8 +5,11 @@
  */
 package projetoLp1.Interface;
 
+import java.awt.Color;
 import javax.swing.event.InternalFrameAdapter;
 import javax.swing.event.InternalFrameEvent;
+import projetoLp1.Interface.Model.ClasseExpRelevante;
+import projetoLp1.Interface.Model.Utils;
 
 /**
  *
@@ -37,15 +40,15 @@ public class ExpRelevante extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jComboBox1 = new javax.swing.JComboBox<>();
+        boxInicio = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        boxFim = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        txtDescricao = new javax.swing.JTextArea();
         Instituicao = new javax.swing.JComboBox<>();
         OutraInsti = new javax.swing.JTextField();
-        jComboBox3 = new javax.swing.JComboBox<>();
-        jTextField1 = new javax.swing.JTextField();
+        boxEstado = new javax.swing.JComboBox<>();
+        txtCidade = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -59,15 +62,15 @@ public class ExpRelevante extends javax.swing.JInternalFrame {
         setClosable(true);
         setTitle("Experiência Profissional Relevante");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1975", "1976", "1977", "1978", "1979", "1980", "1981", "1982", "1983", "1984", "1985", "1986", "1987", "1988", "1989", "1990", "1991", "1992", "1993", "1994", "1995", "1996", "1997", "1998", "1999", "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016" }));
+        boxInicio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1975", "1976", "1977", "1978", "1979", "1980", "1981", "1982", "1983", "1984", "1985", "1986", "1987", "1988", "1989", "1990", "1991", "1992", "1993", "1994", "1995", "1996", "1997", "1998", "1999", "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016" }));
 
         jLabel1.setText("-");
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1975", "1976", "1977", "1978", "1979", "1980", "1981", "1982", "1983", "1984", "1985", "1986", "1987", "1988", "1989", "1990", "1991", "1992", "1993", "1994", "1995", "1996", "1997", "1998", "1999", "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016" }));
+        boxFim.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1975", "1976", "1977", "1978", "1979", "1980", "1981", "1982", "1983", "1984", "1985", "1986", "1987", "1988", "1989", "1990", "1991", "1992", "1993", "1994", "1995", "1996", "1997", "1998", "1999", "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016" }));
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        txtDescricao.setColumns(20);
+        txtDescricao.setRows(5);
+        jScrollPane1.setViewportView(txtDescricao);
 
         Instituicao.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "UEPB - Universidade Estadual da Paraíba", "IFPB - Instituto Federal da Paraíba", "UFPB - Universidade Federal da Paraíba", "UFCG - Universidade Federal de Campina Grande", "UNIPÊ - Centro Universitário de João Pessoa", "FPB - Faculdade Internacional da Paraíba", "LUMEN FAC - Faculdade de Ciências Contábeis Luiz Mendes", "LUMEN FAC - Faculdade de Ciências Médicas da Paraíba", "FACENE - Faculdade de Enfermagem Nova Esperança", "Outra (Especificar)" }));
         Instituicao.addItemListener(new java.awt.event.ItemListener() {
@@ -78,7 +81,9 @@ public class ExpRelevante extends javax.swing.JInternalFrame {
 
         OutraInsti.setEnabled(false);
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Acre (AC)", "Alagoas (AL)", "Amapá (AP)", "Amazonas (AM)", "Bahia (BA)", "Ceará (CE)", "Distrito Federal (DF)", "Espírito Santo (ES)", "Goiás (GO)", "Maranhão (MA)", "Mato Grosso (MT)", "Mato Grosso do Sul (MS)", "Minas Gerais (MG)", "Pará (PA) ", "Paraíba (PB)", "Paraná (PR)", "Pernambuco (PE)", "Piauí (PI)", "Rio de Janeiro (RJ)", "Rio Grande do Norte (RN)", "Rio Grande do Sul (RS)", "Rondônia (RO)", "Roraima (RR)", "Santa Catarina (SC)", "São Paulo (SP)", "Sergipe (SE)", "Tocantins (TO)" }));
+        boxEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Acre (AC)", "Alagoas (AL)", "Amapá (AP)", "Amazonas (AM)", "Bahia (BA)", "Ceará (CE)", "Distrito Federal (DF)", "Espírito Santo (ES)", "Goiás (GO)", "Maranhão (MA)", "Mato Grosso (MT)", "Mato Grosso do Sul (MS)", "Minas Gerais (MG)", "Pará (PA) ", "Paraíba (PB)", "Paraná (PR)", "Pernambuco (PE)", "Piauí (PI)", "Rio de Janeiro (RJ)", "Rio Grande do Norte (RN)", "Rio Grande do Sul (RS)", "Rondônia (RO)", "Roraima (RR)", "Santa Catarina (SC)", "São Paulo (SP)", "Sergipe (SE)", "Tocantins (TO)" }));
+
+        txtCidade.setName(""); // NOI18N
 
         jLabel3.setText("UF:");
 
@@ -132,7 +137,7 @@ public class ExpRelevante extends javax.swing.JInternalFrame {
                         .addGap(38, 38, 38)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(Instituicao, 0, 313, Short.MAX_VALUE)
+                                .addComponent(Instituicao, 0, 1, Short.MAX_VALUE)
                                 .addGap(26, 26, 26)
                                 .addComponent(jLabel3))
                             .addGroup(layout.createSequentialGroup()
@@ -141,17 +146,17 @@ public class ExpRelevante extends javax.swing.JInternalFrame {
                                 .addComponent(jLabel4)))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(boxEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(32, 32, 32))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(boxInicio, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jComboBox2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(boxFim, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(9, 9, 9)
                                 .addComponent(jLabel5)
@@ -177,20 +182,20 @@ public class ExpRelevante extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(boxInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel1)
-                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(boxFim, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(Instituicao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3)
-                    .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(boxEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(OutraInsti, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -209,10 +214,17 @@ public class ExpRelevante extends javax.swing.JInternalFrame {
 
     private void btnAvancarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAvancarActionPerformed
         
-        // Caso a pessoa não queira adicionar mais de uma ExpRelevante
-        // Montar o Obj aqui e chamar o metodo TelaPrincipal.recebeExpRelevante(Passando Objeto criado)
-        
-        TelaPrincipal.gerenciaTela(5);
+        instituicao = Instituicao.getSelectedItem().toString();
+            if(Instituicao.getSelectedItem().toString().equals("Outra (Especificar)")){
+                instituicao = OutraInsti.getText();
+            }
+            // Monta String
+            montaExpRelevante();
+       // }
+        if(checked){
+            TelaPrincipal.recebeExpRelevante(new ClasseExpRelevante(expRelevante));//Cria obj e chama metodo da tela principal
+            TelaPrincipal.gerenciaTela(5);    
+        }
     }//GEN-LAST:event_btnAvancarActionPerformed
 
     private void InstituicaoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_InstituicaoItemStateChanged
@@ -226,18 +238,73 @@ public class ExpRelevante extends javax.swing.JInternalFrame {
         // Criar OBJ ClasseExpRelevante
         // Chamar metodo TelaPrincipal.recebeExpRelevante(Passando Obj criado)
         // Limpar Campos
+        
+        instituicao = Instituicao.getSelectedItem().toString();
+        if(Instituicao.getSelectedItem().toString().equals("Outra (Especificar)")){
+            instituicao = OutraInsti.getText();
+        }
+        
+        montaExpRelevante();
+        
+//        menosDeUm = false;
+        if(checked){
+            limpaTela();
+        }
     }//GEN-LAST:event_btnADDActionPerformed
 
+     private void limpaTela(){
+        txtDescricao.setText("");
+        txtCidade.setText("");
+        OutraInsti.setText("");
+    }
+     
+    private void montaExpRelevante(){
+        checked = true;
+        if(Instituicao.getSelectedItem().toString().equals("Outra (Especificar)")){
+            if(Utils.isEmptyOrNUll(OutraInsti)){
+                OutraInsti.setBackground(Color.red);
+                checked = false;
+            }
+            else{
+                OutraInsti.setBackground(Color.white);
+            }
+        }
+        if(Utils.isEmptyOrNUll(txtCidade)){
+            txtCidade.setBackground(Color.red);
+            checked = false;
+        }else{
+            txtCidade.setBackground(Color.white);
+        }
+        if(txtDescricao.getText().isEmpty()){
+            txtDescricao.setBackground(Color.red);
+            checked = false;
+        }else{
+            txtDescricao.setBackground(Color.white);
+        }
+        
+        if(checked){
+            expRelevante += boxInicio.getSelectedItem().toString() + "-"
+                       +  boxFim.getSelectedItem().toString() + "-"
+                       +  txtDescricao.getText() + "-"
+                       +  instituicao + "-" + boxEstado.getSelectedItem().toString() + "-" 
+                       +  txtCidade.getText() + "\n";
+        }else{
+            Utils.verifyField(this);
+        }
+        
+        System.out.println(expRelevante);
+        
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private static javax.swing.JComboBox<String> Instituicao;
     static javax.swing.JTextField OutraInsti;
+    private javax.swing.JComboBox<String> boxEstado;
+    private javax.swing.JComboBox<String> boxFim;
+    private javax.swing.JComboBox<String> boxInicio;
     private javax.swing.JButton btnADD;
     private javax.swing.JButton btnAvancar;
     private javax.swing.JButton btnVoltar;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -246,7 +313,13 @@ public class ExpRelevante extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField txtCidade;
+    private javax.swing.JTextArea txtDescricao;
     // End of variables declaration//GEN-END:variables
+    private String expRelevante = "";
+    private boolean checked = true;
+    private String instituicao = "";
+
+
 }
+

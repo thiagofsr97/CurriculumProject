@@ -212,14 +212,14 @@ public class ExpDocente extends javax.swing.JInternalFrame {
 
     private void btnAvancarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAvancarActionPerformed
        
-        if(menosDeUm){ //Se clicou em avançar e não adicionou mais de um
+       // if(menosDeUm){ //Se clicou em avançar e não adicionou mais de um
             instituicao = boxInsti.getSelectedItem().toString();
             if(boxInsti.getSelectedItem().toString().equals("Outra (Especificar)")){
                 instituicao = Insti.getText();
             }
             // Monta String
             montaExpDocente();
-        }
+       // }
         if(checked){
             TelaPrincipal.recebeExpDocente(new ClasseExpDocente(expDocente));//Cria obj e chama metodo da tela principal
             TelaPrincipal.gerenciaTela(4);    
@@ -239,14 +239,14 @@ public class ExpDocente extends javax.swing.JInternalFrame {
         // Criar OBJ ClasseExpDocente
         // Chamar metodo TelaPrincipal.recebeExpDocente(Passando Obj criado)
         // Limpar Campos
-        String instituicao = boxInsti.getSelectedItem().toString();
+        instituicao = boxInsti.getSelectedItem().toString();
         if(boxInsti.getSelectedItem().toString().equals("Outra (Especificar)")){
             instituicao = Insti.getText();
         }
         
         montaExpDocente();
         
-        menosDeUm = false;
+//        menosDeUm = false;
         if(checked){
             limpaTela();
         }

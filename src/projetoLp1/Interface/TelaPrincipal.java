@@ -53,6 +53,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 tela4.setVisible(false);
                 break;
             case 4:
+                
                 tela3.setVisible(false);
                 tela4.setVisible(true);
                 tela5.setVisible(false);

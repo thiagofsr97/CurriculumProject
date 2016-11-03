@@ -189,7 +189,7 @@ public class Titulacao extends javax.swing.JInternalFrame {
 
     private void bntAvancarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntAvancarActionPerformed
         
-        if(outraTitulacao){
+       // if(outraTitulacao){
            
             
             if(boxInstituicao.getSelectedItem().toString().equals("Outra (Especificar)")){
@@ -201,9 +201,9 @@ public class Titulacao extends javax.swing.JInternalFrame {
             
             montaTitulacao();
             dados.setTitulacao(titulacao);
-        }else{
-            dados.setTitulacao(titulacao);
-        }
+       // }else{
+        //    dados.setTitulacao(titulacao);
+       // }
         if(checked){
         TelaPrincipal.recebeTitulacao(dados); // Metodo que recebe titulacao
         TelaPrincipal.gerenciaTela(3);
@@ -218,7 +218,7 @@ public class Titulacao extends javax.swing.JInternalFrame {
 
     private void btnADDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnADDActionPerformed
        // ADICIONAR TODOS OS CAMPOS A STRING E DEPOIS LIMPAR OS CAMPOS
-       outraTitulacao = false; //Variavel para informar que existe mais de uma titulacao
+      // outraTitulacao = false; //Variavel para informar que existe mais de uma titulacao
        
        if(boxInstituicao.getSelectedItem().toString().equals("Outra (Especificar)")){
            escola = txtCurso.getText();

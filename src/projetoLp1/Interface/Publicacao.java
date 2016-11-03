@@ -5,8 +5,11 @@
  */
 package projetoLp1.Interface;
 
+import java.awt.Color;
 import javax.swing.event.InternalFrameAdapter;
 import javax.swing.event.InternalFrameEvent;
+import projetoLp1.Interface.Model.ClassePublicacao;
+import projetoLp1.Interface.Model.Utils;
 
 /**
  *
@@ -38,7 +41,7 @@ public class Publicacao extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        txtPublicacao = new javax.swing.JTextArea();
         jLabel1 = new javax.swing.JLabel();
         btnFinalizar = new javax.swing.JButton();
         btnVoltar = new javax.swing.JButton();
@@ -46,9 +49,9 @@ public class Publicacao extends javax.swing.JInternalFrame {
         setClosable(true);
         setTitle("Publicações");
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        txtPublicacao.setColumns(20);
+        txtPublicacao.setRows(5);
+        jScrollPane1.setViewportView(txtPublicacao);
 
         jLabel1.setText("Publicação");
 
@@ -102,7 +105,23 @@ public class Publicacao extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnFinalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinalizarActionPerformed
-        TelaPrincipal.gerenciaTela(6);
+        
+        if(txtPublicacao.getText().isEmpty()){
+            checked = false;
+            txtPublicacao.setBackground(Color.red);
+        }else{
+            txtPublicacao.setBackground(Color.white);
+            checked = true;
+        }
+        
+        
+        if(checked){
+            TelaPrincipal.recebePublicacao(new ClassePublicacao(txtPublicacao.getText()));
+            TelaPrincipal.gerenciaTela(6);
+        
+        }else{
+            Utils.verifyField(this);
+        }
     }//GEN-LAST:event_btnFinalizarActionPerformed
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
@@ -115,6 +134,8 @@ public class Publicacao extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnVoltar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextArea txtPublicacao;
     // End of variables declaration//GEN-END:variables
+    private boolean checked = true;
+    
 }
