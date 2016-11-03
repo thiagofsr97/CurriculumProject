@@ -5,9 +5,11 @@
  */
 package projetoLp1.Interface;
 
+import java.awt.Color;
 import javax.swing.event.InternalFrameAdapter;
 import javax.swing.event.InternalFrameEvent;
 import projetoLp1.Interface.Model.ClasseTitulacao;
+import projetoLp1.Interface.Model.Utils;
 
 /**
  *
@@ -187,22 +189,25 @@ public class Titulacao extends javax.swing.JInternalFrame {
 
     private void bntAvancarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntAvancarActionPerformed
         
-        if(menosDeUm){
-            String escola;
+        if(outraTitulacao){
+           
+            
             if(boxInstituicao.getSelectedItem().toString().equals("Outra (Especificar)")){
                 escola = txtCurso.getText();
             } else{
                 escola = boxInstituicao.getSelectedItem().toString();
             }
             // Montando String caso só queira adicionar uma titulação
-            titulacao += boxAno.getSelectedItem().toString()+ "-" + boxGrau.getSelectedItem().toString()+ "-"
-                 +  escola + "-" + boxEstado.getSelectedItem().toString() + "-" + txtCidade.getText()+ "\n";
-            ct = new ClasseTitulacao(titulacao);
+            
+            montaTitulacao();
+            dados.setTitulacao(titulacao);
         }else{
-            ct = new ClasseTitulacao(titulacao);
+            dados.setTitulacao(titulacao);
         }
-        TelaPrincipal.recebeTitulacao(ct); // Metodo que recebe titulacao
+        if(checked){
+        TelaPrincipal.recebeTitulacao(dados); // Metodo que recebe titulacao
         TelaPrincipal.gerenciaTela(3);
+        }
     }//GEN-LAST:event_bntAvancarActionPerformed
 
     private void boxInstituicaoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_boxInstituicaoItemStateChanged
@@ -213,18 +218,57 @@ public class Titulacao extends javax.swing.JInternalFrame {
 
     private void btnADDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnADDActionPerformed
        // ADICIONAR TODOS OS CAMPOS A STRING E DEPOIS LIMPAR OS CAMPOS
-       menosDeUm = false; //Variavel para informar que existe mais de uma titulacao
-       String escola;
+       outraTitulacao = false; //Variavel para informar que existe mais de uma titulacao
+       
        if(boxInstituicao.getSelectedItem().toString().equals("Outra (Especificar)")){
            escola = txtCurso.getText();
        } else{
            escola = boxInstituicao.getSelectedItem().toString();
        }
        // Montando String para mais de uma titulação
-       titulacao += boxAno.getSelectedItem().toString()+ "-" + boxGrau.getSelectedItem().toString()+ "-"
-                 +  escola + "-" + boxEstado.getSelectedItem().toString() + "-" + txtCidade.getText()+ "\n";
+       montaTitulacao();
+       
+       if(checked){
+        limpaTela();    
+       }
+       
+        System.out.println(titulacao);
     }//GEN-LAST:event_btnADDActionPerformed
 
+    private void montaTitulacao(){
+        checked = true;
+        if(Utils.isEmptyOrNUll(txtCidade)){
+           txtCidade.setBackground(Color.red);
+           checked = false;
+        }else{
+           txtCidade.setBackground(Color.white);
+        }
+        if(Utils.isEmptyOrNUll(txtCurso)){
+            txtCurso.setBackground(Color.RED);
+            checked = false;
+        }else{
+            txtCurso.setBackground(Color.white);
+        }
+        
+        if(checked){
+            titulacao += boxAno.getSelectedItem().toString()+ "-" +
+                    boxGrau.getSelectedItem().toString()+ "-" + txtCurso.getText() + 
+                    "-" + escola + "-"
+                    + boxEstado.getSelectedItem().toString() + "-" 
+                    + txtCidade.getText()+ "\n";
+        }else{
+            Utils.verifyField(this);
+        }
+            
+        
+    }
+    
+    private void limpaTela(){
+        txtCidade.setText("");
+        txtCurso.setText("");
+    }
+    
+   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     static javax.swing.JTextField Insti;
@@ -243,7 +287,9 @@ public class Titulacao extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtCidade;
     static javax.swing.JTextField txtCurso;
     // End of variables declaration//GEN-END:variables
-    public static ClasseTitulacao ct;
-    public static String titulacao = "";
-    public static boolean menosDeUm = true;
+    private ClasseTitulacao dados = new ClasseTitulacao();
+    private String titulacao = "";
+    private boolean outraTitulacao = true;
+    private String escola = "";
+    private boolean checked = true;
 }

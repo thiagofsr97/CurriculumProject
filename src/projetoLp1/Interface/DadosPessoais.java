@@ -11,6 +11,7 @@ import javax.swing.event.InternalFrameAdapter;
 import javax.swing.event.InternalFrameEvent;
 import projetoLp1.Interface.Model.ClasseDados;
 import javax.swing.JOptionPane;
+import projetoLp1.Interface.Model.Utils;
 
 /**
  *
@@ -21,7 +22,7 @@ public class DadosPessoais extends javax.swing.JInternalFrame {
     /**
      * Creates new form DadosPessoais
      */
-    public static void branco (){
+    public static void branco(){
         txtEmail.setBackground(Color.white);
         txtCPF.setBackground(Color.white);
         txtTelefone.setBackground(Color.white);
@@ -183,7 +184,7 @@ public class DadosPessoais extends javax.swing.JInternalFrame {
         boolean checked = true; // Verifica se os dados foram preenchidos corretamente
         
         //Verificando email, caso ok, atribui o valor.
-        if(txtEmail != null && !txtEmail.getText().isEmpty()){
+        if(!Utils.isEmptyOrNUll(txtEmail)){
             
             String email = txtEmail.getText();
             
@@ -218,7 +219,7 @@ public class DadosPessoais extends javax.swing.JInternalFrame {
         }
         
         //Verificando cpf, caso ok, atribui o valor.
-        if(txtCPF != null && !txtCPF.getText().isEmpty()){
+        if(!Utils.isEmptyOrNUll(txtCPF)){
      
             for(int i = 0; i <txtCPF.getText().length(); i++){ // Percorre todo o campo do CPF
                 char c = txtCPF.getText().charAt(i);
@@ -237,7 +238,7 @@ public class DadosPessoais extends javax.swing.JInternalFrame {
         }
         
         //Verificando Endereço, caso ok, atribui o valor.
-        if(txtEndereco != null && !txtEndereco.getText().isEmpty()){
+        if(!Utils.isEmptyOrNUll(txtEndereco)){
             dados.setEndereço(txtEndereco.getText());
         }else{
             txtEndereco.setBackground(new java.awt.Color(255, 51, 51));
@@ -245,7 +246,7 @@ public class DadosPessoais extends javax.swing.JInternalFrame {
         }
         
         //Verificando Nome, caso ok, atribui o valor.
-        if(txtNome != null && !txtNome.getText().isEmpty()){
+        if(!Utils.isEmptyOrNUll(txtNome)){
             dados.setNome(txtNome.getText().toUpperCase()); // NOME MAIUSCULO
         }else{
             txtNome.setBackground(new java.awt.Color(255, 51, 51));
@@ -253,7 +254,7 @@ public class DadosPessoais extends javax.swing.JInternalFrame {
         }
         
         //Verificando RegProfissional, caso ok, atribui o valor.
-        if(txtRegProfissional != null && !txtRegProfissional.getText().isEmpty()){
+        if(!Utils.isEmptyOrNUll(txtRegProfissional)){
             dados.setRegistro(txtRegProfissional.getText());
         }else{
             txtRegProfissional.setBackground(new java.awt.Color(255, 51, 51));
@@ -261,7 +262,7 @@ public class DadosPessoais extends javax.swing.JInternalFrame {
         }
         
         //Verificando Telefone, caso ok, atribui o valor.
-        if(txtTelefone != null && !txtTelefone.getText().isEmpty()){
+        if(!Utils.isEmptyOrNUll(txtTelefone)){
             
             for(int i = 0; i <txtTelefone.getText().length(); i++){// Percorre todo o campo de telefone
                 char c = txtTelefone.getText().charAt(i);
@@ -280,7 +281,7 @@ public class DadosPessoais extends javax.swing.JInternalFrame {
         if(checked){          
           TelaPrincipal.gerenciaTela(2);
         }else{
-            JOptionPane.showMessageDialog(this, "Verifique os dados e tente novamente!", "Atenção", WIDTH);
+            Utils.verifyField(this);
         }      
         
     }//GEN-LAST:event_btnAvancarActionPerformed
