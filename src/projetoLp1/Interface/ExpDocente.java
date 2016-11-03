@@ -5,9 +5,11 @@
  */
 package projetoLp1.Interface;
 
+import java.awt.Color;
 import javax.swing.event.InternalFrameAdapter;
 import javax.swing.event.InternalFrameEvent;
 import projetoLp1.Interface.Model.ClasseExpDocente;
+import projetoLp1.Interface.Model.Utils;
 
 /**
  *
@@ -211,19 +213,18 @@ public class ExpDocente extends javax.swing.JInternalFrame {
     private void btnAvancarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAvancarActionPerformed
        
         if(menosDeUm){ //Se clicou em avançar e não adicionou mais de um
-            String instituicao = boxInsti.getSelectedItem().toString();
+            instituicao = boxInsti.getSelectedItem().toString();
             if(boxInsti.getSelectedItem().toString().equals("Outra (Especificar)")){
                 instituicao = Insti.getText();
             }
             // Monta String
-            expDocente += boxInicio.getSelectedItem().toString() + "-"
-                       +  boxFim.getSelectedItem().toString() + "-"
-                       +  txtDescricao.getText() + "-"
-                       +  instituicao + "-" + boxEstado.getSelectedItem().toString() + "-" 
-                       +  txtCidade.getText() + "\n";
-        } 
-        TelaPrincipal.recebeExpDocente(new ClasseExpDocente(expDocente));//Cria obj e chama metodo da tela principal
-        TelaPrincipal.gerenciaTela(4);
+            montaExpDocente();
+        }
+        if(checked){
+            TelaPrincipal.recebeExpDocente(new ClasseExpDocente(expDocente));//Cria obj e chama metodo da tela principal
+            TelaPrincipal.gerenciaTela(4);    
+        }
+        
     }//GEN-LAST:event_btnAvancarActionPerformed
 
     private void boxInstiItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_boxInstiItemStateChanged
@@ -243,15 +244,57 @@ public class ExpDocente extends javax.swing.JInternalFrame {
             instituicao = Insti.getText();
         }
         
-        expDocente += boxInicio.getSelectedItem().toString() + "-"
-                   +  boxFim.getSelectedItem().toString() + "-"
-                   +  txtDescricao.getText() + "-"
-                   +  instituicao + "-" + boxEstado.getSelectedItem().toString() + "-" 
-                   +  txtCidade.getText() + "\n";
+        montaExpDocente();
         
         menosDeUm = false;
+        if(checked){
+            limpaTela();
+        }
     }//GEN-LAST:event_btnADDActionPerformed
-
+    
+    private void montaExpDocente(){
+        checked = true;
+        if(boxInsti.getSelectedItem().toString().equals("Outra (Especificar)")){
+            if(Utils.isEmptyOrNUll(Insti)){
+                Insti.setBackground(Color.red);
+                checked = false;
+            }
+            else{
+                Insti.setBackground(Color.white);
+            }
+        }
+        if(Utils.isEmptyOrNUll(txtCidade)){
+            txtCidade.setBackground(Color.red);
+            checked = false;
+        }else{
+            txtCidade.setBackground(Color.white);
+        }
+        if(txtDescricao.getText().isEmpty()){
+            txtDescricao.setBackground(Color.red);
+            checked = false;
+        }else{
+            txtDescricao.setBackground(Color.white);
+        }
+        
+        if(checked){
+            expDocente += boxInicio.getSelectedItem().toString() + "-"
+                       +  boxFim.getSelectedItem().toString() + "-"
+                       +  txtDescricao.getText() + "-"
+                       +  instituicao + "-" + boxEstado.getSelectedItem().toString() + "-" 
+                       +  txtCidade.getText() + "\n";
+        }else{
+            Utils.verifyField(this);
+        }
+        
+        System.out.println(expDocente);
+        
+    }
+    
+    private void limpaTela(){
+        txtDescricao.setText("");
+        txtCidade.setText("");
+        Insti.setText("");
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     static javax.swing.JTextField Insti;
@@ -273,6 +316,9 @@ public class ExpDocente extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtCidade;
     private javax.swing.JTextArea txtDescricao;
     // End of variables declaration//GEN-END:variables
-    public static boolean menosDeUm = true;
-    public static String expDocente = "";
+    private String instituicao = "";
+    private boolean menosDeUm = true;
+    private boolean checked = true;
+    
+    private String expDocente = "";
 }
