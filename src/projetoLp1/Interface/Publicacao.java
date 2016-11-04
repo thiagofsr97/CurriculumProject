@@ -117,6 +117,7 @@ public class Publicacao extends javax.swing.JInternalFrame {
         
         if(checked){
             TelaPrincipal.recebePublicacao(new ClassePublicacao(txtPublicacao.getText()));
+            TelaPrincipal.montaObj();
             TelaPrincipal.gerenciaTela(6);
         
         }else{
