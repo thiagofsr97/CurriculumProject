@@ -1,13 +1,34 @@
 package projetoLp1.Interface;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 import projetoLp1.Interface.Model.*;
 
+
 public class TelaPrincipal extends javax.swing.JFrame {
+    
+    
 
     public TelaPrincipal() {
         initComponents();
+        if(p.isFile(fileName)){
+            p.setupLer(fileName);
+            if (p.getContinua()== true){
+                p.readRecords();
+                p.cleanupLer();
+                curriculos = p.getCadcel();
+                
+            }
+            System.out.println("Open file sucessful!");
+            this.setLocationRelativeTo(null);
+        }
+        
+    
+    }
+    
+    public static void criaTela(Curriculo a){
+        TelaConsulta tc = new TelaConsulta(a);
+        Painel.add(tc);
+        tc.setVisible(true);
     }
     
     public static void recebeDados(ClasseDados e){
@@ -32,7 +53,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }
     
     public static void montaObj(){
-        curriculos.add(new Curriculo(cd, ct, ced, cer, cp));
+        Curriculo x = new Curriculo(cd, ct, ced, cer, cp);
+        curriculos.add(x); 
+        
     }
     
     public static void gerenciaTela(int x){
@@ -87,7 +110,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         Cadastrar = new javax.swing.JMenuItem();
-        Alterar = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
         Sair = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -120,9 +143,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         jMenu1.add(Cadastrar);
 
-        Alterar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.ALT_MASK));
-        Alterar.setText("Alterar Currículo");
-        jMenu1.add(Alterar);
+        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.ALT_MASK));
+        jMenuItem1.setText("Pesquisar Currículo");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ConsultarActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem1);
 
         Sair.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.ALT_MASK));
         Sair.setText("Sair");
@@ -173,9 +201,22 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_CadastrarActionPerformed
 
     private void SairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SairActionPerformed
+        p.setupGravar("Curriculo.ser");
+        p.addRecords(curriculos);
+        p.cleanupGravar();
         System.exit(0);
     }//GEN-LAST:event_SairActionPerformed
 
+    private void ConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultarActionPerformed
+        Consulta tela6 = new Consulta(curriculos);
+        pack();
+        Painel.add(tela6);
+        tela6.setVisible(true);
+    
+    }//GEN-LAST:event_ConsultarActionPerformed
+    
+    
+   
     /**
      * @param args the command line arguments
      */
@@ -212,12 +253,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenuItem Alterar;
     private javax.swing.JMenuItem Cadastrar;
-    private javax.swing.JDesktopPane Painel;
+    private static javax.swing.JDesktopPane Painel;
     private javax.swing.JMenuItem Sair;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
     // End of variables declaration//GEN-END:variables
     
     public static DadosPessoais tela1;
@@ -232,4 +273,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     public static ClassePublicacao cp;
 
     public static LinkedList<Curriculo> curriculos = new LinkedList<Curriculo>();
+    private static final int pos = 0;
+    private final Persistencia p = new Persistencia ();
+    private final String fileName = "Curriculo.ser";
 }

@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package projetoLp1.Interface.Model;
+import java.io.Serializable;
 
 import java.util.ArrayList;
 
@@ -11,7 +12,7 @@ import java.util.ArrayList;
  *
  * @author thiagofsr
  */
-public class ClasseTitulacao {
+public class ClasseTitulacao implements Serializable {
     private String titulacao;
 
     public ClasseTitulacao() {

@@ -1,15 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package projetoLp1.Interface.Model;
 
-/**
- *
- * @author thiagofsr
- */
-public class ClasseDados {
+package projetoLp1.Interface.Model;
+import java.io.Serializable;
+
+public class ClasseDados implements Serializable{
     private String nome;
     private String endereço;
     private String email;
@@ -17,14 +10,14 @@ public class ClasseDados {
     private String registro;
     private String telefone;
 
-//    public ClasseDados(String nome, String endereço, String email, String cpf, String registro, String telefone) {
-//        this.nome = nome;
-//        this.endereço = endereço;
-//        this.email = email;
-//        this.cpf = cpf;
-//        this.registro = registro;
-//        this.telefone = telefone;
-//    }
+    public ClasseDados(String nome, String endereço, String email, String cpf, String registro, String telefone) {
+        this.nome = nome;
+        this.endereço = endereço;
+        this.email = email;
+        this.cpf = cpf;
+        this.registro = registro;
+        this.telefone = telefone;
+    }
 
     public String getNome() {
         return nome;

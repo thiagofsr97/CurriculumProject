@@ -134,7 +134,7 @@ public class ExpDocente extends javax.swing.JInternalFrame {
                         .addGap(38, 38, 38)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(boxInsti, 0, 316, Short.MAX_VALUE)
+                                .addComponent(boxInsti, 0, 1, Short.MAX_VALUE)
                                 .addGap(26, 26, 26)
                                 .addComponent(jLabel3))
                             .addGroup(layout.createSequentialGroup()
@@ -157,8 +157,9 @@ public class ExpDocente extends javax.swing.JInternalFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addGap(8, 8, 8)
                                 .addComponent(jLabel5)
-                                .addGap(59, 59, 59)
-                                .addComponent(jLabel6)))
+                                .addGap(49, 49, 49)
+                                .addComponent(jLabel6)
+                                .addGap(0, 0, Short.MAX_VALUE)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -284,10 +285,7 @@ public class ExpDocente extends javax.swing.JInternalFrame {
                        +  txtCidade.getText() + "\n";
         }else{
             Utils.verifyField(this);
-        }
-        
-        System.out.println(expDocente);
-        
+        }        
     }
     
     private void limpaTela(){

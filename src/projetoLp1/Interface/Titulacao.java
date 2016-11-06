@@ -188,10 +188,7 @@ public class Titulacao extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnVoltarActionPerformed
 
     private void bntAvancarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntAvancarActionPerformed
-        
-       // if(outraTitulacao){
-           
-            
+
             if(boxInstituicao.getSelectedItem().toString().equals("Outra (Especificar)")){
                 escola = txtCurso.getText();
             } else{
@@ -201,9 +198,7 @@ public class Titulacao extends javax.swing.JInternalFrame {
             
             montaTitulacao();
             dados.setTitulacao(titulacao);
-       // }else{
-        //    dados.setTitulacao(titulacao);
-       // }
+
         if(checked){
         TelaPrincipal.recebeTitulacao(dados); // Metodo que recebe titulacao
         TelaPrincipal.gerenciaTela(3);
@@ -226,6 +221,7 @@ public class Titulacao extends javax.swing.JInternalFrame {
            escola = boxInstituicao.getSelectedItem().toString();
        }
        // Montando String para mais de uma titulação
+       deNovo = false;
        montaTitulacao();
        
        if(checked){
@@ -250,16 +246,16 @@ public class Titulacao extends javax.swing.JInternalFrame {
             txtCurso.setBackground(Color.white);
         }
         
-        if(checked){
-            titulacao += boxAno.getSelectedItem().toString()+ "-" +
-                    boxGrau.getSelectedItem().toString()+ "-" + txtCurso.getText() + 
-                    "-" + escola + "-"
-                    + boxEstado.getSelectedItem().toString() + "-" 
+        if(checked && !deNovo){
+            titulacao += boxAno.getSelectedItem().toString()+ " - " +
+                    boxGrau.getSelectedItem().toString()+ " em " + txtCurso.getText() + 
+                    " - " + escola + " - "
+                    + boxEstado.getSelectedItem().toString() + " - " 
                     + txtCidade.getText()+ "\n";
+            deNovo = true;
         }else{
             Utils.verifyField(this);
         }
-            
         
     }
     
@@ -292,4 +288,5 @@ public class Titulacao extends javax.swing.JInternalFrame {
     private boolean outraTitulacao = true;
     private String escola = "";
     private boolean checked = true;
+    private boolean deNovo = false;
 }

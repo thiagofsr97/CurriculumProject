@@ -4,12 +4,13 @@
  * and open the template in the editor.
  */
 package projetoLp1.Interface.Model;
+import java.io.Serializable;
 
 /**
  *
  * @author thiagofsr
  */
-public class ClassePublicacao {
+public class ClassePublicacao implements Serializable {
     private String publicacao;
 
     public ClassePublicacao(String publicacao) {

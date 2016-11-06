@@ -1,10 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package projetoLp1.Interface;
 
+package projetoLp1.Interface;
 
 import java.awt.Color;
 import javax.swing.event.InternalFrameAdapter;
@@ -13,10 +8,7 @@ import projetoLp1.Interface.Model.ClasseDados;
 import javax.swing.JOptionPane;
 import projetoLp1.Interface.Model.Utils;
 
-/**
- *
- * @author thiagofsr
- */
+
 public class DadosPessoais extends javax.swing.JInternalFrame {
 
     /**
@@ -56,9 +48,7 @@ public class DadosPessoais extends javax.swing.JInternalFrame {
         jLabel2 = new javax.swing.JLabel();
         txtEndereco = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        txtTelefone = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        txtCPF = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         txtRegProfissional = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
@@ -66,6 +56,8 @@ public class DadosPessoais extends javax.swing.JInternalFrame {
         btnAvancar = new javax.swing.JButton();
         boxDDD = new javax.swing.JComboBox<>();
         boxEmail = new javax.swing.JComboBox<>();
+        txtCPF = new javax.swing.JFormattedTextField();
+        txtTelefone = new javax.swing.JFormattedTextField();
 
         setClosable(true);
 
@@ -78,12 +70,6 @@ public class DadosPessoais extends javax.swing.JInternalFrame {
         jLabel3.setText("Telefone:");
 
         jLabel4.setText("CPF:");
-
-        txtCPF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCPFActionPerformed(evt);
-            }
-        });
 
         jLabel5.setText("R.P:");
 
@@ -101,6 +87,18 @@ public class DadosPessoais extends javax.swing.JInternalFrame {
 
         boxEmail.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "@hotmail.com", "@outlook.com", "@yahoo.com", "@yahoo.com.br", "@gmail.com", "@live.com", "@msn.com", "Outro (Digite ao lado)" }));
 
+        try {
+            txtCPF.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
+        try {
+            txtTelefone.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(#)####-####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -112,7 +110,7 @@ public class DadosPessoais extends javax.swing.JInternalFrame {
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(boxDDD, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(12, 12, 12)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtTelefone))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
@@ -131,9 +129,9 @@ public class DadosPessoais extends javax.swing.JInternalFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(boxEmail, 0, 159, Short.MAX_VALUE))
                             .addComponent(txtEndereco, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtCPF, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtRegProfissional, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtNome, javax.swing.GroupLayout.Alignment.LEADING))))
+                            .addComponent(txtNome, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtCPF, javax.swing.GroupLayout.Alignment.LEADING))))
                 .addGap(50, 50, 50))
         );
         layout.setVerticalGroup(
@@ -150,8 +148,8 @@ public class DadosPessoais extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(txtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(boxDDD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(boxDDD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
@@ -173,12 +171,7 @@ public class DadosPessoais extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtCPFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCPFActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtCPFActionPerformed
-
     private void btnAvancarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAvancarActionPerformed
-        
         branco();
         // VERIFICAR SE TODOS OS CAMPOS TEM INFORMAÇÕES CERTAS
         boolean checked = true; // Verifica se os dados foram preenchidos corretamente
@@ -186,7 +179,7 @@ public class DadosPessoais extends javax.swing.JInternalFrame {
         //Verificando email, caso ok, atribui o valor.
         if(!Utils.isEmptyOrNUll(txtEmail)){
             
-            String email = txtEmail.getText();
+            email = txtEmail.getText();
             
             if(boxEmail.getSelectedItem().toString().equals("Outro (Digite ao lado)") == false){ //Caso alguma opção seja selecionada
                 for(int i = 0; i< txtEmail.getText().length(); i++){ //Percorre a string procurando "@"
@@ -212,7 +205,6 @@ public class DadosPessoais extends javax.swing.JInternalFrame {
                     
             }
 
-            dados.setEmail(email);
         }else{
             txtEmail.setBackground(new java.awt.Color(255, 51, 51));
             checked = false;
@@ -220,18 +212,10 @@ public class DadosPessoais extends javax.swing.JInternalFrame {
         
         //Verificando cpf, caso ok, atribui o valor.
         if(!Utils.isEmptyOrNUll(txtCPF)){
-     
-            for(int i = 0; i <txtCPF.getText().length(); i++){ // Percorre todo o campo do CPF
-                char c = txtCPF.getText().charAt(i);
-                if( !Character.isDigit(c)){ // Se for diferente de um número, Checked recebe False
-                    txtCPF.setBackground(new java.awt.Color(255, 51, 51));
-                    checked = false;
-                    break;
-                }
+            if(txtCPF.getText().equals("   .   .   -  ")){
+                txtCPF.setBackground(new java.awt.Color(255, 51, 51));
+                checked = false;
             }
-            dados.setCpf(txtCPF.getText());
-            
-            
         }else{
             txtCPF.setBackground(new java.awt.Color(255, 51, 51));
             checked = false;
@@ -239,7 +223,6 @@ public class DadosPessoais extends javax.swing.JInternalFrame {
         
         //Verificando Endereço, caso ok, atribui o valor.
         if(!Utils.isEmptyOrNUll(txtEndereco)){
-            dados.setEndereço(txtEndereco.getText());
         }else{
             txtEndereco.setBackground(new java.awt.Color(255, 51, 51));
             checked = false;
@@ -247,7 +230,6 @@ public class DadosPessoais extends javax.swing.JInternalFrame {
         
         //Verificando Nome, caso ok, atribui o valor.
         if(!Utils.isEmptyOrNUll(txtNome)){
-            dados.setNome(txtNome.getText().toUpperCase()); // NOME MAIUSCULO
         }else{
             txtNome.setBackground(new java.awt.Color(255, 51, 51));
             checked = false;
@@ -255,30 +237,24 @@ public class DadosPessoais extends javax.swing.JInternalFrame {
         
         //Verificando RegProfissional, caso ok, atribui o valor.
         if(!Utils.isEmptyOrNUll(txtRegProfissional)){
-            dados.setRegistro(txtRegProfissional.getText());
         }else{
             txtRegProfissional.setBackground(new java.awt.Color(255, 51, 51));
             checked = false;
         }
         
         //Verificando Telefone, caso ok, atribui o valor.
-        if(!Utils.isEmptyOrNUll(txtTelefone)){
-            
-            for(int i = 0; i <txtTelefone.getText().length(); i++){// Percorre todo o campo de telefone
-                char c = txtTelefone.getText().charAt(i);
-                if( Character.isDigit(c) == false){ // Se for diferente de um numero, checked recebe False
-                    txtTelefone.setBackground(new java.awt.Color(255, 51, 51));
-                    checked = false;
-                    break;
-                }
-            }            
-            dados.setTelefone(txtTelefone.getText());
+        if(!Utils.isEmptyOrNUll(txtTelefone)){    
         }else{
             txtTelefone.setBackground(new java.awt.Color(255, 51, 51));
             checked = false;
         }  
              
-        if(checked){          
+        if(checked){
+          dados = new ClasseDados(txtNome.getText(), txtEndereco.getText(), email,
+                                  txtCPF.getText(), txtRegProfissional.getText(),
+                                   "0" + boxDDD.getSelectedItem().toString() + " " +
+                                    txtTelefone.getText());
+          TelaPrincipal.recebeDados(dados);
           TelaPrincipal.gerenciaTela(2);
         }else{
             Utils.verifyField(this);
@@ -287,7 +263,7 @@ public class DadosPessoais extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnAvancarActionPerformed
 
     
-    private ClasseDados dados = new ClasseDados();
+    private ClasseDados dados;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> boxDDD;
@@ -299,11 +275,13 @@ public class DadosPessoais extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private static javax.swing.JTextField txtCPF;
+    private static javax.swing.JFormattedTextField txtCPF;
     private static javax.swing.JTextField txtEmail;
     private static javax.swing.JTextField txtEndereco;
     private static javax.swing.JTextField txtNome;
     private static javax.swing.JTextField txtRegProfissional;
-    private static javax.swing.JTextField txtTelefone;
+    private static javax.swing.JFormattedTextField txtTelefone;
     // End of variables declaration//GEN-END:variables
+    private String email;
+    private int cont = 0;
 }

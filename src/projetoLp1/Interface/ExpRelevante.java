@@ -288,12 +288,11 @@ public class ExpRelevante extends javax.swing.JInternalFrame {
                        +  txtDescricao.getText() + "-"
                        +  instituicao + "-" + boxEstado.getSelectedItem().toString() + "-" 
                        +  txtCidade.getText() + "\n";
+            ClasseExpRelevante cep = new ClasseExpRelevante(expRelevante);
+            TelaPrincipal.recebeExpRelevante(cep);
         }else{
             Utils.verifyField(this);
-        }
-        
-        System.out.println(expRelevante);
-        
+        }        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

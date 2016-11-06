@@ -5,17 +5,19 @@
  */
 package projetoLp1.Interface.Model;
 
+
 import java.awt.Component;
 import static java.awt.image.ImageObserver.WIDTH;
 import javax.swing.JOptionPane;
-import javax.swing.JTextArea;
+
 import javax.swing.JTextField;
+import java.io.Serializable;
 
 /**
  *
  * @author thiagofsr
  */
-public class Utils {
+public class Utils implements Serializable {
     public static boolean isEmptyOrNUll(JTextField textField){
         return textField == null || textField.getText().isEmpty();
     }
