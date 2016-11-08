@@ -303,6 +303,7 @@ public class TelaConsulta extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         if(isFilled()){
             TelaPrincipal.alteraCurriculo(index, curriculos);
+            setEditable(!edit);
             
         }else{
             Utils.verifyField(this);
@@ -385,7 +386,7 @@ public class TelaConsulta extends javax.swing.JInternalFrame {
     private static javax.swing.JTextArea titulaçao;
     // End of variables declaration//GEN-END:variables
     private static Curriculo curriculos;
-    private int index;
-    private boolean edit = true;
+    private final int index;
+    private final boolean edit = true;
     
 }
