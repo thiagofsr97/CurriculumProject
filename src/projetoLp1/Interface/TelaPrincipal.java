@@ -25,8 +25,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
     
     }
     
-    public static void criaTela(Curriculo a){
-        TelaConsulta tc = new TelaConsulta(a);
+    public static void criaTela(Curriculo a, int index){
+        TelaConsulta tc = new TelaConsulta(a,index);
         Painel.add(tc);
         tc.setVisible(true);
     }
@@ -56,6 +56,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
         Curriculo x = new Curriculo(cd, ct, ced, cer, cp);
         curriculos.add(x); 
         
+    }
+    public static void alteraCurriculo(int index,Curriculo curriculo){
+        curriculos.set(index, curriculo);
     }
     
     public static void gerenciaTela(int x){
@@ -273,6 +276,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     public static ClassePublicacao cp;
 
     public static LinkedList<Curriculo> curriculos = new LinkedList<Curriculo>();
+    
     private static final int pos = 0;
     private final Persistencia p = new Persistencia ();
     private final String fileName = "Curriculo.ser";

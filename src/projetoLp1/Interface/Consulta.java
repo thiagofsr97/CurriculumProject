@@ -106,7 +106,7 @@ public class Consulta extends javax.swing.JInternalFrame {
 
                         if(nome1.equals(campo)){
                             encontrei = true;
-                            TelaPrincipal.criaTela(x);
+                            TelaPrincipal.criaTela(x,i);
                             this.dispose();
                             break;
                         }
@@ -125,16 +125,16 @@ public class Consulta extends javax.swing.JInternalFrame {
                         Curriculo x = curriculos.get(i);
                         String cpf1 = x.getDados().getCpf();
                         String campo = txtCPF.getText();
-
+                        System.out.println("oi");
                         if(cpf1.equals(campo)){
                             encontrei = true;
-                            TelaPrincipal.criaTela(x);
+                            TelaPrincipal.criaTela(x,i);
                             this.dispose();
                             break;
                         }
                     }
                     if(encontrei == false){
-                    JOptionPane.showMessageDialog(this, "CPF não encontrado!\n"
+                    JOptionPane.showMessageDialog(this, "CPF não encontrado!\n" 
                                                     + "Favor verificar e tentar novamente!");
                 }
                 }else{

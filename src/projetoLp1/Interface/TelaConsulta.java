@@ -5,7 +5,13 @@
  */
 package projetoLp1.Interface;
 
+import java.awt.Color;
+import java.awt.Component;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+import projetoLp1.Interface.Model.ClasseDados;
 import projetoLp1.Interface.Model.Curriculo;
+import projetoLp1.Interface.Model.Utils;
 
 /**
  *
@@ -16,7 +22,8 @@ public class TelaConsulta extends javax.swing.JInternalFrame {
     /**
      * Creates new form TelaConsulta
      */
-    public TelaConsulta(Curriculo d) {
+    public TelaConsulta(Curriculo d,int index) {
+        this.index = index;
         curriculos = d;
         initComponents();
         setCampos();
@@ -46,7 +53,7 @@ public class TelaConsulta extends javax.swing.JInternalFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
+        jList1 = new javax.swing.JList<String>();
         jLabel4 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         nome = new javax.swing.JTextField();
@@ -72,17 +79,21 @@ public class TelaConsulta extends javax.swing.JInternalFrame {
         jLabel12 = new javax.swing.JLabel();
         jScrollPane5 = new javax.swing.JScrollPane();
         publicaçao = new javax.swing.JTextArea();
+        editButton = new javax.swing.JButton();
+        saveButton = new javax.swing.JButton();
 
         jLabel1.setText("jLabel1");
 
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
+        jList1.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
+            public Object getElementAt(int i) { return strings[i]; }
         });
         jScrollPane1.setViewportView(jList1);
 
         setClosable(true);
+        setMaximizable(true);
+        setResizable(true);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel4.setText("Dados Pessoais");
@@ -90,20 +101,32 @@ public class TelaConsulta extends javax.swing.JInternalFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel2.setText("Nome:");
 
+        nome.setEditable(false);
+
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel3.setText("Endereço:");
+
+        endereço.setEditable(false);
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel5.setText("Fone:");
 
+        fone.setEditable(false);
+
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel6.setText("E-mail:");
+
+        email.setEditable(false);
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel7.setText("CPF:");
 
+        cpf.setEditable(false);
+
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel8.setText("Registro Profissional:");
+
+        rp.setEditable(false);
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel9.setText("Titulação");
@@ -114,14 +137,17 @@ public class TelaConsulta extends javax.swing.JInternalFrame {
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel11.setText("Experiência Profissional Relevante");
 
+        titulaçao.setEditable(false);
         titulaçao.setColumns(20);
         titulaçao.setRows(5);
         jScrollPane2.setViewportView(titulaçao);
 
+        expDocente.setEditable(false);
         expDocente.setColumns(20);
         expDocente.setRows(5);
         jScrollPane3.setViewportView(expDocente);
 
+        expRelevante.setEditable(false);
         expRelevante.setColumns(20);
         expRelevante.setRows(5);
         jScrollPane4.setViewportView(expRelevante);
@@ -129,52 +155,73 @@ public class TelaConsulta extends javax.swing.JInternalFrame {
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel12.setText("Publicações");
 
+        publicaçao.setEditable(false);
         publicaçao.setColumns(20);
         publicaçao.setRows(5);
         jScrollPane5.setViewportView(publicaçao);
+
+        editButton.setText("Editar");
+        editButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editButtonActionPerformed(evt);
+            }
+        });
+
+        saveButton.setText("Salvar");
+        saveButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel2))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(fone)
-                            .addComponent(endereço)
-                            .addComponent(nome)))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel6))
-                        .addGap(24, 24, 24)
+                        .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(cpf, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel5)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel2))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel8)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(rp))
-                            .addComponent(email)))
-                    .addComponent(jScrollPane3)
-                    .addComponent(jScrollPane4)
-                    .addComponent(jScrollPane5)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(fone)
+                                    .addComponent(endereço)
+                                    .addComponent(nome)))
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel7)
+                                    .addComponent(jLabel6))
+                                .addGap(24, 24, 24)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(cpf, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabel8)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(rp))
+                                    .addComponent(email)))
+                            .addComponent(jScrollPane3)
+                            .addComponent(jScrollPane4)
+                            .addComponent(jScrollPane5)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel9)
+                                    .addComponent(jLabel10)
+                                    .addComponent(jLabel11)
+                                    .addComponent(jLabel12)
+                                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 373, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 460, Short.MAX_VALUE))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel9)
-                            .addComponent(jLabel10)
-                            .addComponent(jLabel11)
-                            .addComponent(jLabel12)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 373, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 460, Short.MAX_VALUE)))
+                        .addComponent(editButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(saveButton)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -215,19 +262,99 @@ public class TelaConsulta extends javax.swing.JInternalFrame {
                 .addComponent(jLabel11)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel12)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 104, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel12)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(editButton)
+                        .addGap(0, 6, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(saveButton)
+                        .addContainerGap())))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void editButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButtonActionPerformed
+        // TODO add your handling code here:
+        setEditable(edit);
+    }//GEN-LAST:event_editButtonActionPerformed
+
+    private void setEditable(boolean edit){
+      Component c;
+      for(int i = 0; i<getContentPane().getComponentCount();i++){
+          c = getContentPane().getComponent(i);
+          if(c instanceof JTextField){
+              JTextField txtField = (JTextField) c;
+              txtField.setEditable(edit);
+          }
+          if(c instanceof JTextArea){
+              JTextArea txtArea = (JTextArea) c;
+              txtArea.setEditable(edit);
+          }
+      }
+    }
+    private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
+        // TODO add your handling code here:
+        if(isFilled()){
+            TelaPrincipal.alteraCurriculo(index, curriculos);
+            
+        }else{
+            Utils.verifyField(this);
+            
+        }
+        
+    }//GEN-LAST:event_saveButtonActionPerformed
+
+    private void setCurriculo(){
+        curriculos.getDados().setDados(nome.getText(),endereço.getText(),email.getText(),cpf.getText(),rp.getText(),fone.getText());
+        curriculos.getExpDocente().setExpDocente(expDocente.getText());
+        curriculos.getExpRelevante().setExpRelevante(expRelevante.getText());
+        curriculos.getPublicacao().setPublicacao(publicaçao.getText());
+        curriculos.getTitulacao().setTitulacao(titulaçao.getText());
+
+        
+    }
+    private boolean isFilled(){
+        Component c;
+        boolean checked = true;
+        for(int i = 0; i<getContentPane().getComponentCount();i++){
+          c = getContentPane().getComponent(i);
+          if(c instanceof JTextField){
+              JTextField txtField = (JTextField) c;
+              if(txtField.getText().isEmpty()){
+                  txtField.setBackground(Color.red);
+                  checked = false;
+                  
+              }else{
+                  txtField.setBackground(Color.white);
+              }
+          }
+          if(c instanceof JTextArea){
+              JTextArea txtArea = (JTextArea) c;
+              txtArea.setEditable(edit);
+              if(txtArea.getText().isEmpty()){
+                  txtArea.setBackground(Color.red);
+                  checked = false;
+                  
+              }else{
+                  txtArea.setBackground(Color.white);
+              }
+          }
+          
+      }
+      return checked;  
+    }
+        
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private static javax.swing.JTextField cpf;
+    private javax.swing.JButton editButton;
     private static javax.swing.JTextField email;
     private static javax.swing.JTextField endereço;
     private static javax.swing.JTextArea expDocente;
@@ -254,7 +381,11 @@ public class TelaConsulta extends javax.swing.JInternalFrame {
     private static javax.swing.JTextField nome;
     private static javax.swing.JTextArea publicaçao;
     private static javax.swing.JTextField rp;
+    private javax.swing.JButton saveButton;
     private static javax.swing.JTextArea titulaçao;
     // End of variables declaration//GEN-END:variables
     private static Curriculo curriculos;
+    private int index;
+    private boolean edit = true;
+    
 }

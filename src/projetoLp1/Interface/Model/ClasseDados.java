@@ -18,6 +18,15 @@ public class ClasseDados implements Serializable{
         this.registro = registro;
         this.telefone = telefone;
     }
+    
+    public void setDados(String nome, String endereço, String email, String cpf, String registro, String telefone){
+        this.nome = nome;
+        this.endereço = endereço;
+        this.email = email;
+        this.cpf = cpf;
+        this.registro = registro;
+        this.telefone = telefone;
+    }
 
     public String getNome() {
         return nome;
