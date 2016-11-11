@@ -1,27 +1,19 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package projetoLp1.Interface;
 
 import java.awt.Color;
 import java.awt.Component;
+import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
-import projetoLp1.Interface.Model.ClasseDados;
 import projetoLp1.Interface.Model.Curriculo;
 import projetoLp1.Interface.Model.Utils;
 
-/**
- *
- * @author João
- */
+
 public class TelaConsulta extends javax.swing.JInternalFrame {
 
-    /**
-     * Creates new form TelaConsulta
-     */
+
     public TelaConsulta(Curriculo d,int index) {
         this.index = index;
         curriculos = d;
@@ -29,7 +21,7 @@ public class TelaConsulta extends javax.swing.JInternalFrame {
         setCampos();
     }
     
-    public static void setCampos(){
+    public void setCampos(){
         nome.setText(curriculos.getDados().getNome());
         endereço.setText(curriculos.getDados().getEndereço());
         fone.setText(curriculos.getDados().getTelefone());
@@ -40,7 +32,6 @@ public class TelaConsulta extends javax.swing.JInternalFrame {
         expDocente.setText(curriculos.getExpDocente().getExpDocente());
         expRelevante.setText(curriculos.getExpRelevante().getExpRelevante());
         publicaçao.setText(curriculos.getPublicacao().getPublicacao());
-        
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -53,7 +44,7 @@ public class TelaConsulta extends javax.swing.JInternalFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<String>();
+        jList1 = new javax.swing.JList<>();
         jLabel4 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         nome = new javax.swing.JTextField();
@@ -64,7 +55,6 @@ public class TelaConsulta extends javax.swing.JInternalFrame {
         jLabel6 = new javax.swing.JLabel();
         email = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        cpf = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         rp = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
@@ -81,13 +71,14 @@ public class TelaConsulta extends javax.swing.JInternalFrame {
         publicaçao = new javax.swing.JTextArea();
         editButton = new javax.swing.JButton();
         saveButton = new javax.swing.JButton();
+        cpf = new javax.swing.JFormattedTextField();
 
         jLabel1.setText("jLabel1");
 
-        jList1.setModel(new javax.swing.AbstractListModel() {
+        jList1.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
+            public String getElementAt(int i) { return strings[i]; }
         });
         jScrollPane1.setViewportView(jList1);
 
@@ -120,8 +111,6 @@ public class TelaConsulta extends javax.swing.JInternalFrame {
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel7.setText("CPF:");
-
-        cpf.setEditable(false);
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel8.setText("Registro Profissional:");
@@ -174,55 +163,60 @@ public class TelaConsulta extends javax.swing.JInternalFrame {
             }
         });
 
+        cpf.setEditable(false);
+        try {
+            cpf.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel2))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(fone)
+                            .addComponent(endereço)
+                            .addComponent(nome)))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel7)
+                            .addComponent(jLabel6))
+                        .addGap(24, 24, 24)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel5)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel2))
+                                .addComponent(cpf, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel8)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(fone)
-                                    .addComponent(endereço)
-                                    .addComponent(nome)))
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel7)
-                                    .addComponent(jLabel6))
-                                .addGap(24, 24, 24)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(cpf, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLabel8)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(rp))
-                                    .addComponent(email)))
-                            .addComponent(jScrollPane3)
-                            .addComponent(jScrollPane4)
-                            .addComponent(jScrollPane5)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel9)
-                                    .addComponent(jLabel10)
-                                    .addComponent(jLabel11)
-                                    .addComponent(jLabel12)
-                                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 373, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 460, Short.MAX_VALUE))))
+                                .addComponent(rp))
+                            .addComponent(email)))
+                    .addComponent(jScrollPane3)
+                    .addComponent(jScrollPane4)
+                    .addComponent(jScrollPane5)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel9)
+                            .addComponent(jLabel10)
+                            .addComponent(jLabel11)
+                            .addComponent(jLabel12)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 373, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 437, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(editButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(saveButton)))
-                .addContainerGap())
+                .addGap(33, 33, 33))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -247,34 +241,30 @@ public class TelaConsulta extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(cpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8)
-                    .addComponent(rp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(rp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jLabel9)
                 .addGap(20, 20, 20)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel10)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel11)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel12)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(editButton)
-                        .addGap(0, 6, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(saveButton)
-                        .addContainerGap())))
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel12)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(editButton)
+                    .addComponent(saveButton))
+                .addGap(0, 9, Short.MAX_VALUE))
         );
 
         pack();
@@ -292,34 +282,37 @@ public class TelaConsulta extends javax.swing.JInternalFrame {
           if(c instanceof JTextField){
               JTextField txtField = (JTextField) c;
               txtField.setEditable(edit);
-          }
-          if(c instanceof JTextArea){
-              JTextArea txtArea = (JTextArea) c;
-              txtArea.setEditable(edit);
-          }
-      }
+          } 
+          if(c instanceof JScrollPane){
+              JScrollPane scroll = (JScrollPane) c;
+              JTextArea txtArea = (JTextArea) scroll.getViewport().getView();
+              txtArea.setEditable(true);
+            }
+          
     }
+      if(edit){
+          cpf.setEditable(edit);
+          JOptionPane.showMessageDialog(this, "Campos liberados para edição!");
+      }
+ }
     private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
-        // TODO add your handling code here:
         if(isFilled()){
+            setCurriculo();
+            JOptionPane.showMessageDialog(this, "Curriculo alterado com sucesso!");
             TelaPrincipal.alteraCurriculo(index, curriculos);
             setEditable(!edit);
             
         }else{
             Utils.verifyField(this);
-            
         }
-        
     }//GEN-LAST:event_saveButtonActionPerformed
-
+    
     private void setCurriculo(){
         curriculos.getDados().setDados(nome.getText(),endereço.getText(),email.getText(),cpf.getText(),rp.getText(),fone.getText());
         curriculos.getExpDocente().setExpDocente(expDocente.getText());
         curriculos.getExpRelevante().setExpRelevante(expRelevante.getText());
         curriculos.getPublicacao().setPublicacao(publicaçao.getText());
         curriculos.getTitulacao().setTitulacao(titulaçao.getText());
-
-        
     }
     private boolean isFilled(){
         Component c;
@@ -351,10 +344,9 @@ public class TelaConsulta extends javax.swing.JInternalFrame {
       }
       return checked;  
     }
-        
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private static javax.swing.JTextField cpf;
+    private static javax.swing.JFormattedTextField cpf;
     private javax.swing.JButton editButton;
     private static javax.swing.JTextField email;
     private static javax.swing.JTextField endereço;

@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package projetoLp1.Interface;
 
 import java.awt.Color;
@@ -11,10 +7,7 @@ import javax.swing.event.InternalFrameEvent;
 import projetoLp1.Interface.Model.ClassePublicacao;
 import projetoLp1.Interface.Model.Utils;
 
-/**
- *
- * @author João
- */
+
 public class Publicacao extends javax.swing.JInternalFrame {
 
     /**
@@ -76,29 +69,32 @@ public class Publicacao extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 504, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(btnVoltar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnFinalizar))
-                    .addComponent(jScrollPane1))
+                        .addComponent(btnFinalizar)))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
-                .addGap(153, 153, 153)
+                .addGap(221, 221, 221)
                 .addComponent(jLabel1)
-                .addContainerGap(166, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(16, 16, 16)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnFinalizar)
-                    .addComponent(btnVoltar))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 162, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(btnFinalizar)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(btnVoltar)
+                        .addGap(20, 20, 20))))
         );
 
         pack();
@@ -116,8 +112,7 @@ public class Publicacao extends javax.swing.JInternalFrame {
         
         
         if(checked){
-            TelaPrincipal.recebePublicacao(new ClassePublicacao(txtPublicacao.getText()));
-            TelaPrincipal.montaObj();
+            TelaPrincipal.recebePublicacao(new ClassePublicacao(txtPublicacao.getText().trim()));
             TelaPrincipal.gerenciaTela(6);
         
         }else{

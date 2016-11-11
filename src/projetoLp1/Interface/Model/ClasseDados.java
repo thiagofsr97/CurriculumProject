@@ -10,6 +10,10 @@ public class ClasseDados implements Serializable{
     private String registro;
     private String telefone;
 
+    public ClasseDados(){
+        
+    }
+    
     public ClasseDados(String nome, String endereço, String email, String cpf, String registro, String telefone) {
         this.nome = nome;
         this.endereço = endereço;

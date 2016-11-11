@@ -5,7 +5,11 @@
  */
 package projetoLp1.Interface;
 
+
 import java.awt.Color;
+import java.awt.Component;
+
+import javax.swing.JTextField;
 import javax.swing.event.InternalFrameAdapter;
 import javax.swing.event.InternalFrameEvent;
 import projetoLp1.Interface.Model.ClasseTitulacao;
@@ -112,31 +116,11 @@ public class Titulacao extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(29, 29, 29)
                 .addComponent(btnVoltar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 192, Short.MAX_VALUE)
                 .addComponent(btnADD)
                 .addGap(138, 138, 138)
                 .addComponent(bntAvancar)
                 .addGap(32, 32, 32))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addComponent(jLabel3)
-                .addGap(307, 307, 307)
-                .addComponent(txtCidade)
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(boxEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(74, 74, 74)
-                        .addComponent(jLabel4)
-                        .addGap(0, 25, Short.MAX_VALUE))
-                    .addComponent(boxInstituicao, 0, 1, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
-                .addComponent(Insti, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(10, 10, 10)
                 .addComponent(jLabel9)
@@ -149,6 +133,24 @@ public class Titulacao extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txtCurso)
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel3)
+                .addGap(47, 47, 47)
+                .addComponent(boxEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel4)
+                .addGap(29, 29, 29)
+                .addComponent(txtCidade)
+                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(boxInstituicao, 0, 1, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(Insti, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -160,19 +162,18 @@ public class Titulacao extends javax.swing.JInternalFrame {
                     .addComponent(txtCurso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(boxAno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(boxInstituicao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(Insti, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(34, 34, 34)
+                .addGap(41, 41, 41)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(txtCidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2)
+                    .addComponent(boxInstituicao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Insti, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(41, 41, 41)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(boxEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                    .addComponent(boxEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4)
+                    .addComponent(txtCidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(bntAvancar)
                     .addComponent(btnADD)
@@ -194,14 +195,13 @@ public class Titulacao extends javax.swing.JInternalFrame {
             } else{
                 escola = boxInstituicao.getSelectedItem().toString();
             }
-            // Montando String caso só queira adicionar uma titulação
-            
-            montaTitulacao();
-            dados.setTitulacao(titulacao);
+            // Montando String caso só queira adicionar uma titulação       
+                      
 
-        if(checked){
-        TelaPrincipal.recebeTitulacao(dados); // Metodo que recebe titulacao
-        TelaPrincipal.gerenciaTela(3);
+        if(montaTitulacao()){
+            dados.setTitulacao(titulacao);
+            TelaPrincipal.recebeTitulacao(dados); // Metodo que recebe titulacao
+            TelaPrincipal.gerenciaTela(3);
         }
     }//GEN-LAST:event_bntAvancarActionPerformed
 
@@ -221,40 +221,49 @@ public class Titulacao extends javax.swing.JInternalFrame {
            escola = boxInstituicao.getSelectedItem().toString();
        }
        // Montando String para mais de uma titulação
-       deNovo = false;
-       montaTitulacao();
        
-       if(checked){
+            
+       if(montaTitulacao()){
         limpaTela();    
        }
        
-        System.out.println(titulacao);
+       
     }//GEN-LAST:event_btnADDActionPerformed
-
-    private void montaTitulacao(){
-        checked = true;
-        if(Utils.isEmptyOrNUll(txtCidade)){
-           txtCidade.setBackground(Color.red);
-           checked = false;
-        }else{
-           txtCidade.setBackground(Color.white);
-        }
-        if(Utils.isEmptyOrNUll(txtCurso)){
-            txtCurso.setBackground(Color.RED);
-            checked = false;
-        }else{
-            txtCurso.setBackground(Color.white);
-        }
-        
-        if(checked && !deNovo){
+    
+    private boolean isFilled(){
+    boolean checking = true;
+        for(int i = 0; i<getContentPane().getComponentCount();i++){
+            Component c = getContentPane().getComponent(i);
+            if(c instanceof JTextField){
+                JTextField txtField = (JTextField) c;
+                if(txtField.isEnabled()){
+                    if(Utils.isEmptyOrNUll(txtField)){
+                        checking = false;
+                        txtField.setBackground(Color.red);
+                    }else{
+                        txtField.setBackground(Color.white);
+                    }
+                    
+                }// second if
+            }// first if        
+            
+        }//for statement    
+              
+        return checking;
+     
+    }
+    private boolean montaTitulacao(){
+       
+        if(isFilled()){
             titulacao += boxAno.getSelectedItem().toString()+ " - " +
-                    boxGrau.getSelectedItem().toString()+ " em " + txtCurso.getText() + 
+                    boxGrau.getSelectedItem().toString()+ " em " + txtCurso.getText().trim() +
                     " - " + escola + " - "
                     + boxEstado.getSelectedItem().toString() + " - " 
                     + txtCidade.getText()+ "\n";
-            deNovo = true;
+            return true;
         }else{
             Utils.verifyField(this);
+            return false;
         }
         
     }
@@ -285,8 +294,7 @@ public class Titulacao extends javax.swing.JInternalFrame {
     // End of variables declaration//GEN-END:variables
     private ClasseTitulacao dados = new ClasseTitulacao();
     private String titulacao = "";
-    private boolean outraTitulacao = true;
+   
     private String escola = "";
-    private boolean checked = true;
-    private boolean deNovo = false;
+    
 }

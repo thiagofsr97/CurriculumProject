@@ -9,6 +9,7 @@ public class Curriculo implements Serializable {
     private ClasseExpDocente expDocente;
     private ClasseExpRelevante expRelevante;
     private ClasseTitulacao titulacao;
+    private int indice;
 
     public Curriculo(ClasseDados dados, ClasseTitulacao titulacao, ClasseExpDocente expDocente, ClasseExpRelevante expRelevante, ClassePublicacao publicacao) {
         this.dados = dados;
@@ -56,6 +57,14 @@ public class Curriculo implements Serializable {
 
     public void setTitulacao(ClasseTitulacao titulacao) {
         this.titulacao = titulacao;
+    }
+
+    public int getIndice() {
+        return indice;
+    }
+
+    public void setIndice(int indice) {
+        this.indice = indice;
     }
     
     public String getDadosText(){

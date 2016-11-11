@@ -1,20 +1,21 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package projetoLp1.Interface;
 
+import com.toedter.calendar.JDateChooser;
 import java.awt.Color;
+import java.awt.Component;
+import static java.awt.image.ImageObserver.WIDTH;
+import java.text.SimpleDateFormat;
+
+import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+
 import javax.swing.event.InternalFrameAdapter;
 import javax.swing.event.InternalFrameEvent;
 import projetoLp1.Interface.Model.ClasseExpDocente;
 import projetoLp1.Interface.Model.Utils;
 
-/**
- *
- * @author João
- */
 public class ExpDocente extends javax.swing.JInternalFrame {
 
     /**
@@ -39,9 +40,6 @@ public class ExpDocente extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        boxInicio = new javax.swing.JComboBox<>();
-        jLabel1 = new javax.swing.JLabel();
-        boxFim = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtDescricao = new javax.swing.JTextArea();
         boxInsti = new javax.swing.JComboBox<>();
@@ -57,15 +55,11 @@ public class ExpDocente extends javax.swing.JInternalFrame {
         btnAvancar = new javax.swing.JButton();
         btnVoltar = new javax.swing.JButton();
         btnADD = new javax.swing.JButton();
+        boxInicio = new com.toedter.calendar.JDateChooser();
+        boxFim = new com.toedter.calendar.JDateChooser();
 
         setClosable(true);
         setTitle("Experiência Profissional Docente");
-
-        boxInicio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1975", "1976", "1977", "1978", "1979", "1980", "1981", "1982", "1983", "1984", "1985", "1986", "1987", "1988", "1989", "1990", "1991", "1992", "1993", "1994", "1995", "1996", "1997", "1998", "1999", "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016" }));
-
-        jLabel1.setText("-");
-
-        boxFim.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1975", "1976", "1977", "1978", "1979", "1980", "1981", "1982", "1983", "1984", "1985", "1986", "1987", "1988", "1989", "1990", "1991", "1992", "1993", "1994", "1995", "1996", "1997", "1998", "1999", "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016" }));
 
         txtDescricao.setColumns(20);
         txtDescricao.setRows(5);
@@ -126,7 +120,7 @@ public class ExpDocente extends javax.swing.JInternalFrame {
                         .addComponent(btnVoltar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnADD)
-                        .addGap(169, 169, 169)
+                        .addGap(185, 185, 185)
                         .addComponent(btnAvancar)
                         .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
@@ -134,11 +128,11 @@ public class ExpDocente extends javax.swing.JInternalFrame {
                         .addGap(38, 38, 38)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(boxInsti, 0, 1, Short.MAX_VALUE)
-                                .addGap(26, 26, 26)
+                                .addComponent(boxInsti, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jLabel3))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(Insti)
+                                .addComponent(Insti, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jLabel4)))
                         .addGap(32, 32, 32)
@@ -147,45 +141,44 @@ public class ExpDocente extends javax.swing.JInternalFrame {
                             .addComponent(txtCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(24, 24, 24))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(boxInicio, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGap(1, 1, 1)
-                                .addComponent(jLabel1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(boxFim, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addGap(8, 8, 8)
-                                .addComponent(jLabel5)
-                                .addGap(49, 49, 49)
-                                .addComponent(jLabel6)
-                                .addGap(0, 0, Short.MAX_VALUE)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel7)
-                                .addGap(186, 186, 186))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(5, 5, 5)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 482, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap())))))
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel6))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(boxFim, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(boxInicio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 460, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel7)
+                .addGap(190, 190, 190))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel7))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(boxInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel1)
-                        .addComponent(boxFim, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap(38, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(boxInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(101, 101, 101))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jLabel7)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(87, 87, 87)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel6)
+                                    .addComponent(boxFim, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(boxInsti, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -196,7 +189,7 @@ public class ExpDocente extends javax.swing.JInternalFrame {
                     .addComponent(jLabel4)
                     .addComponent(txtCidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Insti, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAvancar)
                     .addComponent(btnVoltar)
@@ -213,15 +206,13 @@ public class ExpDocente extends javax.swing.JInternalFrame {
 
     private void btnAvancarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAvancarActionPerformed
        
-       // if(menosDeUm){ //Se clicou em avançar e não adicionou mais de um
             instituicao = boxInsti.getSelectedItem().toString();
             if(boxInsti.getSelectedItem().toString().equals("Outra (Especificar)")){
-                instituicao = Insti.getText();
+                instituicao = Insti.getText().trim();
             }
             // Monta String
-            montaExpDocente();
-       // }
-        if(checked){
+            
+        if(montaExpDocente()){
             TelaPrincipal.recebeExpDocente(new ClasseExpDocente(expDocente));//Cria obj e chama metodo da tela principal
             TelaPrincipal.gerenciaTela(4);    
         }
@@ -236,56 +227,80 @@ public class ExpDocente extends javax.swing.JInternalFrame {
 
     private void btnADDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnADDActionPerformed
         
-        // Montar String com todos os campos
-        // Criar OBJ ClasseExpDocente
-        // Chamar metodo TelaPrincipal.recebeExpDocente(Passando Obj criado)
-        // Limpar Campos
         instituicao = boxInsti.getSelectedItem().toString();
         if(boxInsti.getSelectedItem().toString().equals("Outra (Especificar)")){
-            instituicao = Insti.getText();
+            instituicao = Insti.getText().trim();
         }
-        
-        montaExpDocente();
-        
-//        menosDeUm = false;
-        if(checked){
+          
+        if(montaExpDocente()){
             limpaTela();
         }
     }//GEN-LAST:event_btnADDActionPerformed
     
-    private void montaExpDocente(){
-        checked = true;
-        if(boxInsti.getSelectedItem().toString().equals("Outra (Especificar)")){
-            if(Utils.isEmptyOrNUll(Insti)){
-                Insti.setBackground(Color.red);
-                checked = false;
+    private boolean isFilled(){
+        boolean checking = true;
+        for(int i = 0; i<getContentPane().getComponentCount();i++){
+            Component c = getContentPane().getComponent(i);
+            if(c instanceof JTextField){
+                JTextField txtField = (JTextField) c;
+                if(txtField.isEnabled()){
+                    if(Utils.isEmptyOrNUll(txtField)){
+                        checking = false;
+                        txtField.setBackground(Color.red);
+                    }else{
+                        txtField.setBackground(Color.white);
+                    }
+                    
+                }// second if
+            }// first if
+            
+            if(c instanceof JScrollPane){
+                JScrollPane scroll = (JScrollPane) c;
+                if(scroll.getViewport().getView() instanceof JTextArea){
+                    JTextArea txtArea = (JTextArea) scroll.getViewport().getView();
+                    if(txtArea.getText().isEmpty()){
+                        txtArea.setBackground(Color.red);
+                        checking = false;
+                    }else{
+                        txtArea.setBackground(Color.white);
+                    }
+                }
             }
-            else{
-                Insti.setBackground(Color.white);
-            }
+            
+            if(c instanceof JDateChooser){
+                if(c.getName().equals("boxInicio")){
+                    JDateChooser boxInicio1 = (JDateChooser) c;
+                }else{
+                    JDateChooser boxFim1 = (JDateChooser) c;
+                }
+            
         }
-        if(Utils.isEmptyOrNUll(txtCidade)){
-            txtCidade.setBackground(Color.red);
-            checked = false;
-        }else{
-            txtCidade.setBackground(Color.white);
-        }
-        if(txtDescricao.getText().isEmpty()){
-            txtDescricao.setBackground(Color.red);
-            checked = false;
-        }else{
-            txtDescricao.setBackground(Color.white);
+        }//for statement
+        
+        try{
+            dataInicio = formatador.format(boxInicio.getDate());
+            dataFim = formatador.format(boxFim.getDate());
+        }catch(NullPointerException npe){
+            JOptionPane.showMessageDialog(this, "Verifique os campos de Datas e tente novamente!", "Atenção", WIDTH);
+            checking = false;
         }
         
-        if(checked){
-            expDocente += boxInicio.getSelectedItem().toString() + "-"
-                       +  boxFim.getSelectedItem().toString() + "-"
-                       +  txtDescricao.getText() + "-"
-                       +  instituicao + "-" + boxEstado.getSelectedItem().toString() + "-" 
-                       +  txtCidade.getText() + "\n";
+        return checking;
+     
+    }
+    
+    private boolean montaExpDocente(){
+        if(isFilled()){
+            expDocente += dataInicio + " - "
+                       +  dataFim  + " - "
+                       +  txtDescricao.getText().trim() + " - "
+                       +  instituicao + " - " + boxEstado.getSelectedItem().toString() + " - " 
+                       +  txtCidade.getText().trim() + "\n";
+            return true;
         }else{
             Utils.verifyField(this);
-        }        
+            return false;
+        }       
     }
     
     private void limpaTela(){
@@ -297,13 +312,12 @@ public class ExpDocente extends javax.swing.JInternalFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     static javax.swing.JTextField Insti;
     private javax.swing.JComboBox<String> boxEstado;
-    private javax.swing.JComboBox<String> boxFim;
-    private javax.swing.JComboBox<String> boxInicio;
+    private com.toedter.calendar.JDateChooser boxFim;
+    private com.toedter.calendar.JDateChooser boxInicio;
     private static javax.swing.JComboBox<String> boxInsti;
     private javax.swing.JButton btnADD;
     private javax.swing.JButton btnAvancar;
     private javax.swing.JButton btnVoltar;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -314,9 +328,8 @@ public class ExpDocente extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtCidade;
     private javax.swing.JTextArea txtDescricao;
     // End of variables declaration//GEN-END:variables
-    private String instituicao = "";
-    private boolean menosDeUm = true;
-    private boolean checked = true;
-    
-    private String expDocente = "";
+    private String instituicao = "";   
+    private String expDocente = "";   
+    private SimpleDateFormat formatador = new SimpleDateFormat("dd/MM/yyyy");
+    private String dataInicio, dataFim;
 }

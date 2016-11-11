@@ -1,20 +1,21 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package projetoLp1.Interface;
 
+import com.toedter.calendar.JDateChooser;
 import java.awt.Color;
+import java.awt.Component;
+import static java.awt.image.ImageObserver.WIDTH;
+import java.text.SimpleDateFormat;
+
+import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
 import javax.swing.event.InternalFrameAdapter;
 import javax.swing.event.InternalFrameEvent;
 import projetoLp1.Interface.Model.ClasseExpRelevante;
 import projetoLp1.Interface.Model.Utils;
 
-/**
- *
- * @author João
- */
 public class ExpRelevante extends javax.swing.JInternalFrame {
 
     /**
@@ -40,9 +41,6 @@ public class ExpRelevante extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        boxInicio = new javax.swing.JComboBox<>();
-        jLabel1 = new javax.swing.JLabel();
-        boxFim = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtDescricao = new javax.swing.JTextArea();
         Instituicao = new javax.swing.JComboBox<>();
@@ -58,15 +56,11 @@ public class ExpRelevante extends javax.swing.JInternalFrame {
         btnAvancar = new javax.swing.JButton();
         btnVoltar = new javax.swing.JButton();
         btnADD = new javax.swing.JButton();
+        boxInicio = new com.toedter.calendar.JDateChooser();
+        boxFim = new com.toedter.calendar.JDateChooser();
 
         setClosable(true);
         setTitle("Experiência Profissional Relevante");
-
-        boxInicio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1975", "1976", "1977", "1978", "1979", "1980", "1981", "1982", "1983", "1984", "1985", "1986", "1987", "1988", "1989", "1990", "1991", "1992", "1993", "1994", "1995", "1996", "1997", "1998", "1999", "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016" }));
-
-        jLabel1.setText("-");
-
-        boxFim.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1975", "1976", "1977", "1978", "1979", "1980", "1981", "1982", "1983", "1984", "1985", "1986", "1987", "1988", "1989", "1990", "1991", "1992", "1993", "1994", "1995", "1996", "1997", "1998", "1999", "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016" }));
 
         txtDescricao.setColumns(20);
         txtDescricao.setRows(5);
@@ -91,9 +85,9 @@ public class ExpRelevante extends javax.swing.JInternalFrame {
 
         jLabel2.setText("Instituição:");
 
-        jLabel5.setText("Início");
+        jLabel5.setText("Início:");
 
-        jLabel6.setText("Fim");
+        jLabel6.setText("Fim:");
 
         jLabel7.setText("Descrição da Atividade");
 
@@ -129,64 +123,62 @@ public class ExpRelevante extends javax.swing.JInternalFrame {
                         .addComponent(btnVoltar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnADD)
-                        .addGap(165, 165, 165)
+                        .addGap(190, 190, 190)
                         .addComponent(btnAvancar)
                         .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addGap(38, 38, 38)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(Instituicao, 0, 1, Short.MAX_VALUE)
-                                .addGap(26, 26, 26)
-                                .addComponent(jLabel3))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(OutraInsti)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel4)))
-                        .addGap(18, 18, 18)
+                            .addComponent(OutraInsti)
+                            .addComponent(Instituicao, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addGap(27, 27, 27)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(boxEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(32, 32, 32))
+                        .addGap(23, 23, 23))
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(9, 9, 9)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(boxInicio, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(boxFim, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(jLabel6)
+                                .addGap(18, 18, 18)
+                                .addComponent(boxFim, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(9, 9, 9)
-                                .addComponent(jLabel5)
-                                .addGap(35, 35, 35)
-                                .addComponent(jLabel6)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(190, 190, 190)
-                                .addComponent(jLabel7))
-                            .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 475, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap())))
+                                .addGap(39, 39, 39)
+                                .addComponent(boxInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 460, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel7)
+                .addGap(192, 192, 192))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel7))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(boxInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel1)
-                        .addComponent(boxFim, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel5)
+                            .addComponent(boxInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(36, 36, 36)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(boxFim, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel6))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(Instituicao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -219,9 +211,9 @@ public class ExpRelevante extends javax.swing.JInternalFrame {
                 instituicao = OutraInsti.getText();
             }
             // Monta String
-            montaExpRelevante();
+            
        // }
-        if(checked){
+        if(montaExpRelevante()){
             TelaPrincipal.recebeExpRelevante(new ClasseExpRelevante(expRelevante));//Cria obj e chama metodo da tela principal
             TelaPrincipal.gerenciaTela(5);    
         }
@@ -244,10 +236,9 @@ public class ExpRelevante extends javax.swing.JInternalFrame {
             instituicao = OutraInsti.getText();
         }
         
-        montaExpRelevante();
         
 //        menosDeUm = false;
-        if(checked){
+        if(montaExpRelevante()){
             limpaTela();
         }
     }//GEN-LAST:event_btnADDActionPerformed
@@ -258,40 +249,68 @@ public class ExpRelevante extends javax.swing.JInternalFrame {
         OutraInsti.setText("");
     }
      
-    private void montaExpRelevante(){
-        checked = true;
-        if(Instituicao.getSelectedItem().toString().equals("Outra (Especificar)")){
-            if(Utils.isEmptyOrNUll(OutraInsti)){
-                OutraInsti.setBackground(Color.red);
-                checked = false;
+     private boolean isFilled(){
+        boolean checking = true;
+        for(int i = 0; i<getContentPane().getComponentCount();i++){
+            Component c = getContentPane().getComponent(i);
+            if(c instanceof JTextField){
+                JTextField txtField = (JTextField) c;
+                if(txtField.isEnabled()){
+                    if(Utils.isEmptyOrNUll(txtField)){
+                        checking = false;
+                        txtField.setBackground(Color.red);
+                    }else{
+                        txtField.setBackground(Color.white);
+                    }
+                    
+                }// second if
+            }// first if
+            
+            if(c instanceof JScrollPane){
+                JScrollPane scroll = (JScrollPane) c;
+                if(scroll.getViewport().getView() instanceof JTextArea){
+                    JTextArea txtArea = (JTextArea) scroll.getViewport().getView();
+                    if(txtArea.getText().isEmpty()){
+                        txtArea.setBackground(Color.red);
+                        checking = false;
+                    }else{
+                        txtArea.setBackground(Color.white);
+                    }
+                }
             }
-            else{
-                OutraInsti.setBackground(Color.white);
-            }
+            
+            if(c instanceof JDateChooser){
+                if(c.getName().equals("boxInicio")){
+                    JDateChooser boxInicio1 = (JDateChooser) c;
+                }else{
+                    JDateChooser boxFim1 = (JDateChooser) c;
+                }
+            
         }
-        if(Utils.isEmptyOrNUll(txtCidade)){
-            txtCidade.setBackground(Color.red);
-            checked = false;
-        }else{
-            txtCidade.setBackground(Color.white);
-        }
-        if(txtDescricao.getText().isEmpty()){
-            txtDescricao.setBackground(Color.red);
-            checked = false;
-        }else{
-            txtDescricao.setBackground(Color.white);
+        }//for statement
+        
+        try{
+            dataInicio = formatador.format(boxInicio.getDate());
+            dataFim = formatador.format(boxFim.getDate());
+        }catch(NullPointerException npe){
+            JOptionPane.showMessageDialog(this, "Verifique os campos de Datas e tente novamente!", "Atenção", WIDTH);
+            checking = false;
         }
         
-        if(checked){
-            expRelevante += boxInicio.getSelectedItem().toString() + "-"
-                       +  boxFim.getSelectedItem().toString() + "-"
-                       +  txtDescricao.getText() + "-"
-                       +  instituicao + "-" + boxEstado.getSelectedItem().toString() + "-" 
-                       +  txtCidade.getText() + "\n";
-            ClasseExpRelevante cep = new ClasseExpRelevante(expRelevante);
-            TelaPrincipal.recebeExpRelevante(cep);
+        return checking;
+     
+    }
+    private boolean montaExpRelevante(){       
+        if(isFilled()){
+            expRelevante += dataInicio + " - "
+                       +  dataFim + " - "
+                       +  txtDescricao.getText().trim() + " - "
+                       +  instituicao.trim() + " - " + boxEstado.getSelectedItem().toString() + " - " 
+                       +  txtCidade.getText().trim() + "\n";
+            return true;
         }else{
             Utils.verifyField(this);
+            return false;
         }        
     }
 
@@ -299,12 +318,11 @@ public class ExpRelevante extends javax.swing.JInternalFrame {
     private static javax.swing.JComboBox<String> Instituicao;
     static javax.swing.JTextField OutraInsti;
     private javax.swing.JComboBox<String> boxEstado;
-    private javax.swing.JComboBox<String> boxFim;
-    private javax.swing.JComboBox<String> boxInicio;
+    private com.toedter.calendar.JDateChooser boxFim;
+    private com.toedter.calendar.JDateChooser boxInicio;
     private javax.swing.JButton btnADD;
     private javax.swing.JButton btnAvancar;
     private javax.swing.JButton btnVoltar;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -316,8 +334,11 @@ public class ExpRelevante extends javax.swing.JInternalFrame {
     private javax.swing.JTextArea txtDescricao;
     // End of variables declaration//GEN-END:variables
     private String expRelevante = "";
-    private boolean checked = true;
+    
     private String instituicao = "";
+    
+    SimpleDateFormat formatador = new SimpleDateFormat("dd/MM/yyyy");
+    String dataInicio, dataFim;
 
 
 }

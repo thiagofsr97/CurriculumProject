@@ -1,12 +1,11 @@
 package projetoLp1.Interface;
 
 import java.util.LinkedList;
+import javax.swing.JOptionPane;
 import projetoLp1.Interface.Model.*;
 
 
 public class TelaPrincipal extends javax.swing.JFrame {
-    
-    
 
     public TelaPrincipal() {
         initComponents();
@@ -18,10 +17,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 curriculos = p.getCadcel();
                 
             }
-            System.out.println("Open file sucessful!");
             this.setLocationRelativeTo(null);
+            if(curriculos.size() > 0){                
+                indice = curriculos.size();
+                System.out.println(curriculos.size());
+                System.out.println(indice);
+            }
         }
-        
     
     }
     
@@ -53,17 +55,24 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }
     
     public static void montaObj(){
-        Curriculo x = new Curriculo(cd, ct, ced, cer, cp);
-        curriculos.add(x); 
+        
+            
+            Curriculo x = new Curriculo(cd, ct, ced, cer, cp);
+            x.setIndice(indice);
+            curriculos.add(x); 
+            JOptionPane.showMessageDialog(null, "O índice para pesquisa é: " + indice,
+                                            "Índice Gerado", JOptionPane.INFORMATION_MESSAGE);
+            
+            indice++;
         
     }
-    public static void alteraCurriculo(int index,Curriculo curriculo){
+    public static void alteraCurriculo(int index, Curriculo curriculo){
         curriculos.set(index, curriculo);
     }
     
-    public static void gerenciaTela(int x){
+    public static void gerenciaTela(int screen){
  
-        switch (x) {
+        switch (screen) {
             case 1:
                 tela1.setVisible(true);
                 tela2.setVisible(false);
@@ -79,7 +88,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 tela4.setVisible(false);
                 break;
             case 4:
-                
                 tela3.setVisible(false);
                 tela4.setVisible(true);
                 tela5.setVisible(false);
@@ -200,7 +208,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         tela4.setVisible(false);
         tela5.setVisible(false);
         
-        
     }//GEN-LAST:event_CadastrarActionPerformed
 
     private void SairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SairActionPerformed
@@ -215,11 +222,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
         pack();
         Painel.add(tela6);
         tela6.setVisible(true);
-    
     }//GEN-LAST:event_ConsultarActionPerformed
     
-    
-   
     /**
      * @param args the command line arguments
      */
@@ -264,20 +268,19 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem1;
     // End of variables declaration//GEN-END:variables
     
-    public static DadosPessoais tela1;
-    public static Titulacao tela2;
-    public static ExpDocente tela3;
-    public static ExpRelevante tela4;
-    public static Publicacao tela5;
-    public static ClasseDados cd;
-    public static ClasseTitulacao ct;
-    public static ClasseExpDocente ced;
-    public static ClasseExpRelevante cer;
-    public static ClassePublicacao cp;
-
-    public static LinkedList<Curriculo> curriculos = new LinkedList<Curriculo>();
-    
-    private static final int pos = 0;
+    private static DadosPessoais tela1;
+    private static Titulacao tela2;
+    private static ExpDocente tela3;
+    private static ExpRelevante tela4;
+    private static Publicacao tela5;
+    private static ClasseDados cd;
+    private static ClasseTitulacao ct;
+    private static ClasseExpDocente ced;
+    private static ClasseExpRelevante cer;
+    private static ClassePublicacao cp;
+    private static LinkedList<Curriculo> curriculos = new LinkedList<Curriculo>();
     private final Persistencia p = new Persistencia ();
     private final String fileName = "Curriculo.ser";
+    private static int indice = 0;
+    
 }
