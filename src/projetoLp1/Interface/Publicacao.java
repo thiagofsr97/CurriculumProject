@@ -2,6 +2,7 @@
 package projetoLp1.Interface;
 
 import java.awt.Color;
+import javax.swing.JOptionPane;
 import javax.swing.event.InternalFrameAdapter;
 import javax.swing.event.InternalFrameEvent;
 import projetoLp1.Interface.Model.ClassePublicacao;
@@ -100,24 +101,22 @@ public class Publicacao extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void saveAndGo(){
+        TelaPrincipal.recebePublicacao(new ClassePublicacao(txtPublicacao.getText().trim()));
+        TelaPrincipal.gerenciaTela(6);
+    }
     private void btnFinalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinalizarActionPerformed
         
         if(txtPublicacao.getText().isEmpty()){
-            checked = false;
-            txtPublicacao.setBackground(Color.red);
+            if(Utils.question(this) == JOptionPane.OK_OPTION){
+                saveAndGo();
+            }
+            
         }else{
-            txtPublicacao.setBackground(Color.white);
-            checked = true;
-        }
+            saveAndGo();
+        }     
         
         
-        if(checked){
-            TelaPrincipal.recebePublicacao(new ClassePublicacao(txtPublicacao.getText().trim()));
-            TelaPrincipal.gerenciaTela(6);
-        
-        }else{
-            Utils.verifyField(this);
-        }
     }//GEN-LAST:event_btnFinalizarActionPerformed
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed

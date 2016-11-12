@@ -203,19 +203,27 @@ public class ExpRelevante extends javax.swing.JInternalFrame {
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
        TelaPrincipal.gerenciaTela(3);
     }//GEN-LAST:event_btnVoltarActionPerformed
-
-    private void btnAvancarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAvancarActionPerformed
+    
+    private void saveAndGo(){
+        TelaPrincipal.recebeExpRelevante(new ClasseExpRelevante(expRelevante));//Cria obj e chama metodo da tela principal
+        TelaPrincipal.gerenciaTela(5);
         
-        instituicao = Instituicao.getSelectedItem().toString();
-            if(Instituicao.getSelectedItem().toString().equals("Outra (Especificar)")){
-                instituicao = OutraInsti.getText();
+    }
+    private void btnAvancarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAvancarActionPerformed
+        if(!isFilled() && counting == 0){
+            if(Utils.question(this) == JOptionPane.OK_OPTION){
+                montaObjetoVazio();
+                saveAndGo();
             }
+        }else{
+            instituicao = Instituicao.getSelectedItem().toString();
+                if(Instituicao.getSelectedItem().toString().equals("Outra (Especificar)")){
+                    instituicao = OutraInsti.getText();
+                }
             // Monta String
-            
-       // }
-        if(montaExpRelevante()){
-            TelaPrincipal.recebeExpRelevante(new ClasseExpRelevante(expRelevante));//Cria obj e chama metodo da tela principal
-            TelaPrincipal.gerenciaTela(5);    
+            if(montaExpRelevante()){
+                saveAndGo();    
+            }
         }
     }//GEN-LAST:event_btnAvancarActionPerformed
 
@@ -242,7 +250,7 @@ public class ExpRelevante extends javax.swing.JInternalFrame {
             limpaTela();
         }
     }//GEN-LAST:event_btnADDActionPerformed
-
+        
      private void limpaTela(){
         txtDescricao.setText("");
         txtCidade.setText("");
@@ -251,6 +259,7 @@ public class ExpRelevante extends javax.swing.JInternalFrame {
      
      private boolean isFilled(){
         boolean checking = true;
+        dateCheck = true;
         for(int i = 0; i<getContentPane().getComponentCount();i++){
             Component c = getContentPane().getComponent(i);
             if(c instanceof JTextField){
@@ -293,12 +302,16 @@ public class ExpRelevante extends javax.swing.JInternalFrame {
             dataInicio = formatador.format(boxInicio.getDate());
             dataFim = formatador.format(boxFim.getDate());
         }catch(NullPointerException npe){
-            JOptionPane.showMessageDialog(this, "Verifique os campos de Datas e tente novamente!", "Atenção", WIDTH);
+            dateCheck = false;
             checking = false;
         }
         
         return checking;
      
+    }
+     
+    private void montaObjetoVazio(){
+        expRelevante = "";
     }
     private boolean montaExpRelevante(){       
         if(isFilled()){
@@ -309,6 +322,8 @@ public class ExpRelevante extends javax.swing.JInternalFrame {
                        +  txtCidade.getText().trim() + "\n";
             return true;
         }else{
+            if(!dateCheck)
+                Utils.verifyDate(this);
             Utils.verifyField(this);
             return false;
         }        
@@ -334,6 +349,8 @@ public class ExpRelevante extends javax.swing.JInternalFrame {
     private javax.swing.JTextArea txtDescricao;
     // End of variables declaration//GEN-END:variables
     private String expRelevante = "";
+    private int counting = 0;
+    private boolean dateCheck = true;
     
     private String instituicao = "";
     

@@ -24,6 +24,12 @@ public class Utils implements Serializable {
         JOptionPane.showMessageDialog(component, "Verifique os dados e tente novamente!", "Atenção", WIDTH);
         
     }
+    public static void verifyDate(Component component){
+        JOptionPane.showMessageDialog(component, "Verifique os campos de Datas e tente novamente!", "Atenção", WIDTH);
+    }
+    public static int question(Component component){
+        return JOptionPane.showConfirmDialog(component,"Deseja avançar sem preencher?", "Atenção", WIDTH);
+    }
     
     
     

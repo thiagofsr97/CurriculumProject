@@ -200,22 +200,33 @@ public class ExpDocente extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void saveAndGo(){
+        TelaPrincipal.recebeExpDocente(new ClasseExpDocente(expDocente));
+        TelaPrincipal.gerenciaTela(4);
+    }
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
         TelaPrincipal.gerenciaTela(2);
     }//GEN-LAST:event_btnVoltarActionPerformed
 
     private void btnAvancarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAvancarActionPerformed
-       
-            instituicao = boxInsti.getSelectedItem().toString();
-            if(boxInsti.getSelectedItem().toString().equals("Outra (Especificar)")){
-                instituicao = Insti.getText().trim();
-            }
-            // Monta String
+            if(!isFilled() && counting == 0){
+                
+                if(Utils.question(this) == JOptionPane.OK_OPTION){
+                    montaObjetoVazio();
+                    saveAndGo();
+                }
+            }else{               
             
-        if(montaExpDocente()){
-            TelaPrincipal.recebeExpDocente(new ClasseExpDocente(expDocente));//Cria obj e chama metodo da tela principal
-            TelaPrincipal.gerenciaTela(4);    
-        }
+                instituicao = boxInsti.getSelectedItem().toString();
+                if(boxInsti.getSelectedItem().toString().equals("Outra (Especificar)")){
+                    instituicao = Insti.getText().trim();
+                }   
+                // Monta String
+            
+                if(montaExpDocente()){
+                    saveAndGo();
+                }
+            }
         
     }//GEN-LAST:event_btnAvancarActionPerformed
 
@@ -239,6 +250,7 @@ public class ExpDocente extends javax.swing.JInternalFrame {
     
     private boolean isFilled(){
         boolean checking = true;
+        dateCheck = true;
         for(int i = 0; i<getContentPane().getComponentCount();i++){
             Component c = getContentPane().getComponent(i);
             if(c instanceof JTextField){
@@ -281,16 +293,20 @@ public class ExpDocente extends javax.swing.JInternalFrame {
             dataInicio = formatador.format(boxInicio.getDate());
             dataFim = formatador.format(boxFim.getDate());
         }catch(NullPointerException npe){
-            JOptionPane.showMessageDialog(this, "Verifique os campos de Datas e tente novamente!", "Atenção", WIDTH);
+            dateCheck = false;
             checking = false;
         }
         
         return checking;
      
     }
+    private void montaObjetoVazio(){
+        expDocente = "";
+    }
     
     private boolean montaExpDocente(){
         if(isFilled()){
+            counting++; 
             expDocente += dataInicio + " - "
                        +  dataFim  + " - "
                        +  txtDescricao.getText().trim() + " - "
@@ -298,6 +314,8 @@ public class ExpDocente extends javax.swing.JInternalFrame {
                        +  txtCidade.getText().trim() + "\n";
             return true;
         }else{
+            if(!dateCheck)
+                Utils.verifyDate(this);
             Utils.verifyField(this);
             return false;
         }       
@@ -332,4 +350,6 @@ public class ExpDocente extends javax.swing.JInternalFrame {
     private String expDocente = "";   
     private SimpleDateFormat formatador = new SimpleDateFormat("dd/MM/yyyy");
     private String dataInicio, dataFim;
+    private int counting = 0;
+    private boolean dateCheck = true;
 }
