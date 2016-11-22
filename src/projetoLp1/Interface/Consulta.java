@@ -117,29 +117,39 @@ public class Consulta extends javax.swing.JInternalFrame {
 
     private void btnConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultaActionPerformed
         boolean encontrei = false;
-        
+        Curriculo x = null;
+        int i = 0;
+        cont = 0;
         switch(caso){
             case 0:
                 JOptionPane.showMessageDialog(null, "Campos vazios!");
                 break;
             case 1:
+                
                 if(!txtNome.getText().equals("")){
-                    for(int i = 0; i < curriculos.size(); i++){
+                    for(i = 0; i < curriculos.size(); i++){
                         
-                        Curriculo x = curriculos.get(i);
+                        x = curriculos.get(i);
                         String nome1 = x.getDados().getNome();
                         String campo = txtNome.getText();
 
                         if(nome1.equalsIgnoreCase(campo)){
                             encontrei = true;
-                            TelaPrincipal.criaTela(x,i);
-                            this.dispose();
-                            break;
+                            cont++;
                         }
                     }
                     if(encontrei == false){
                         JOptionPane.showMessageDialog(this, "Nome não encontrado!\n"
                                                     + "Favor verificar e tentar novamente!");
+                    }else{
+                        if(cont > 1){
+                            JOptionPane.showMessageDialog(this, "Foram encontrados "+ cont +" resultados!\n"
+                                    + "Para uma busca mais efetiva, procure através do CPF!");
+                        }else{
+                           TelaPrincipal.criaTela(x,i);
+                           this.dispose(); 
+                        }
+                        
                     }
                 }else{
                     JOptionPane.showMessageDialog(this, "Preencha o campo!");
@@ -147,8 +157,8 @@ public class Consulta extends javax.swing.JInternalFrame {
                 break;
             case 2:
                 if(!txtCPF.getText().equals("")){
-                    for(int i = 0; i < curriculos.size(); i++){
-                        Curriculo x = curriculos.get(i);
+                    for(i = 0; i < curriculos.size(); i++){
+                        x = curriculos.get(i);
                         String cpf1 = x.getDados().getCpf();
                         String campo = txtCPF.getText();
                         if(cpf1.equals(campo)){
@@ -170,9 +180,9 @@ public class Consulta extends javax.swing.JInternalFrame {
             case 3:
                 
                 if(!txtIndice.getText().equals("")){
-                    for(int i = 0; i < curriculos.size(); i++){
+                    for(i = 0; i < curriculos.size(); i++){
                         
-                        Curriculo x = curriculos.get(i);
+                        x = curriculos.get(i);
                         int indice1 = Integer.parseInt(txtIndice.getText());
                         
                         if(indice1 == x.getIndice()){
@@ -262,4 +272,5 @@ public class Consulta extends javax.swing.JInternalFrame {
     // End of variables declaration//GEN-END:variables
     private static LinkedList<Curriculo> curriculos;
     private static int caso = 0;
+    private int cont = 0;
 }
