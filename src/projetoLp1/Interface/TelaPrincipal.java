@@ -20,8 +20,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
             this.setLocationRelativeTo(null);
             if(curriculos.size() > 0){                
                 indice = curriculos.size();
-                System.out.println(curriculos.size());
-                System.out.println(indice);
             }
         }
     
@@ -72,7 +70,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     
     public static void gerenciaTela(int screen){
  
-        switch (screen) {
+        switch (screen) { // Método que muda visibilidade das telas.
             case 1:
                 tela1.setVisible(true);
                 tela2.setVisible(false);
@@ -97,11 +95,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 tela5.setVisible(true);
                 break;
             case 6:
-                tela1.dispose();
-                tela2.dispose();
-                tela3.dispose();
-                tela4.dispose();
-                tela5.dispose();              
+                tela1.dispose();tela1 = null;
+                tela2.dispose();tela2 = null;
+                tela3.dispose();tela3 = null;
+                tela4.dispose();tela4 = null;
+                tela5.dispose();tela5 = null; 
                 break;
             default:
                 break;
@@ -191,22 +189,29 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void CadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadastrarActionPerformed
-        tela1 = new DadosPessoais();
-        tela2 = new Titulacao();
-        tela3 = new ExpDocente();
-        tela4 = new ExpRelevante();
-        tela5 = new Publicacao();
-        pack();
-        Painel.add(tela1);
-        Painel.add(tela2);
-        Painel.add(tela3);
-        Painel.add(tela4);
-        Painel.add(tela5);
-        tela1.setVisible(true);
-        tela2.setVisible(false);
-        tela3.setVisible(false);
-        tela4.setVisible(false);
-        tela5.setVisible(false);
+        
+        if(tela1 == null){
+            tela1 = new DadosPessoais();
+            tela2 = new Titulacao();
+            tela3 = new ExpDocente();
+            tela4 = new ExpRelevante();
+            tela5 = new Publicacao();
+            pack();
+            Painel.add(tela1);
+            Painel.add(tela2);
+            Painel.add(tela3);
+            Painel.add(tela4);
+            Painel.add(tela5);
+            tela1.setVisible(true);
+            tela2.setVisible(false);
+            tela3.setVisible(false);
+            tela4.setVisible(false);
+            tela5.setVisible(false);
+        }else{
+            JOptionPane.showMessageDialog(this, "Tela de cadastro já está aberta!",
+                    "Cadastro Aberto", JOptionPane.INFORMATION_MESSAGE);
+        }
+        
         
     }//GEN-LAST:event_CadastrarActionPerformed
 
@@ -218,10 +223,15 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_SairActionPerformed
 
     private void ConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultarActionPerformed
-        Consulta tela6 = new Consulta(curriculos);
-        pack();
-        Painel.add(tela6);
-        tela6.setVisible(true);
+        if(tela6 == null || tela6.isClosed()){
+            tela6 = new Consulta(curriculos);
+            pack();
+            Painel.add(tela6);
+            tela6.setVisible(true);
+        }else{
+            JOptionPane.showMessageDialog(this, "Tela de consulta já está aberta!",
+                    "Consulta Aberta", JOptionPane.INFORMATION_MESSAGE);
+        }
     }//GEN-LAST:event_ConsultarActionPerformed
     
     /**
@@ -282,5 +292,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private final Persistencia p = new Persistencia ();
     private final String fileName = "Curriculo.ser";
     private static int indice = 0;
+    private static Consulta tela6;
     
 }
